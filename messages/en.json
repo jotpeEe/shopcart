@@ -1,0 +1,23 @@
+{
+    "Home": {
+        "title": "Sign in",
+        "description": "Enter your email below to sign in"
+    },
+    "AuthFooter": {
+        "notice": "Privacy notice",
+        "terms": "Terms of use",
+        "cookies": "Cookie preferences",
+        "hcaptcha": "This site is protected by hCaptcha and its",
+        "&": "and",
+        "end": "apply"
+    },
+    "AuthForm": {
+        "emailPlaceholder": "email@example.com",
+        "password": "Your password",
+        "signIn": "Sign in with email",
+        "separator": "Or continue with",
+        "question": "New to ShopCart",
+        "callToAction": "Create an account"
+    },
+    "ModeToggle": {}
+}
