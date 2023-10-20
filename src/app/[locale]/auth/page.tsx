@@ -1,13 +1,13 @@
-import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 
-import { AuthForm, ModeToggle } from '@/components';
+import { AuthForm } from '@/components';
 import { AuthFooter } from '@/components/auth/AuthFooter';
 
-export default function Home() {
+export default function Auth() {
     const t = useTranslations('Home');
+
     return (
-        <main className="flex max-h-screen flex-col">
+        <section className="flex max-h-screen flex-col">
             <div className="flex h-screen items-center justify-center p-12">
                 <div className="lg:p-8">
                     <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
@@ -24,6 +24,6 @@ export default function Home() {
                 </div>
             </div>
             <AuthFooter />
-        </main>
+        </section>
     );
 }
