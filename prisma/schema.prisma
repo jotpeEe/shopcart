@@ -11,21 +11,22 @@ datasource db {
 }
 
 model Profile {
-  id Int @id @default(autoincrement())
-  userId Int @unique
-  name String
-  imageUrl String @db.Text
-  email String @db.Text
+  id String @id @default(uuid())
+  name String?
+  email String? @unique
+  emailVerified DateTime?
+  image String?
+  hashedPassword String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Ingredient {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   name String
   prices Price[]
-  shopId Int
+  shopId String
 
   shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
 
@@ -34,7 +35,7 @@ model Ingredient {
 }
 
 model Shop {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   name String
 
   prices Price[]
@@ -42,9 +43,9 @@ model Shop {
 }
 
 model Price {
-  id Int @id @default(autoincrement())
-  shopId Int
-  ingredientId Int
+  id String @id @default(uuid())
+  shopId String
+  ingredientId String
   
   ingredient Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
   shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
