@@ -3,7 +3,11 @@ import { Inter as FontSans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 
-import { NextAuthProvider, ThemeProvider } from '@/components/providers';
+import {
+    NextAuthProvider,
+    ThemeProvider,
+    ToasterProvider,
+} from '@/components/providers';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
@@ -45,7 +49,10 @@ export default async function RootLayout({
                         storageKey="shopcart"
                         disableTransitionOnChange
                     >
-                        <NextAuthProvider>{children}</NextAuthProvider>
+                        <NextAuthProvider>
+                            <ToasterProvider />
+                            {children}
+                        </NextAuthProvider>
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>
