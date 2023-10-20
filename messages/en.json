@@ -19,5 +19,17 @@
         "question": "New to ShopCart",
         "callToAction": "Create an account"
     },
-    "ModeToggle": {}
+    "ModeToggle": {},
+    "useLogin": {
+        "passwordError": "Enter password",
+        "emailError": "Enter email",
+        "emailServerError": "Invalid password",
+        "passwordServerError": "Invalid password",
+        "zodEmail": "Zły format adresu email"
+    },
+    "useSignup": {
+        "passwordError": "Enter password",
+        "emailError": "Enter email",
+        "emailServerError": "Email taken"
+    }
 }

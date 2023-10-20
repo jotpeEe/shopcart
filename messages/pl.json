@@ -18,5 +18,17 @@
         "separator": "lub kontynuuj z",
         "question": "Nowy w ShopCart?",
         "callToAction": "Załóż konto"
+    },
+    "useLogin": {
+        "passwordError": "Wpisz hasło",
+        "emailError": "Wpisz adress email",
+        "emailServerError": "Konto z podanym adresem juz istnieje",
+        "passwordServerError": "Nieprawidłowe hasło",
+        "zodEmail": "Invalid email"
+    },
+    "useSignup": {
+        "passwordError": "Wpisz hasło",
+        "emailError": "Wpisz adress email",
+        "emailServerError": "Istnieje konto z podanym adresem"
     }
 }
