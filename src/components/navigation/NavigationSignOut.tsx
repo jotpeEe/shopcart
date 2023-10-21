@@ -10,8 +10,7 @@ export const SignOut = () => {
             className="w-fit dark:text-black"
             onClick={() =>
                 signOut({
-                    redirect: true,
-                    callbackUrl: 'http://localhost:3000/auth',
+                    callbackUrl: '/auth',
                 })
             }
         >

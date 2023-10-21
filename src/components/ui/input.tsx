@@ -1,8 +1,33 @@
 import * as React from 'react';
 
-import { Eye } from 'lucide-react';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 import { cn } from '@/lib/utils';
+
+const Eye = ({
+    onClick,
+    ...props
+}: React.HTMLAttributes<HTMLButtonElement>) => {
+    const [clicked, setClicked] = React.useState<boolean>(false);
+
+    return (
+        <button
+            type="button"
+            onClick={e => {
+                setClicked(c => !c);
+                if (onClick) onClick(e);
+            }}
+            className="absolute right-0 top-0 cursor-pointer p-2.5 text-stone-500 transition hover:text-stone-800 hover:dark:text-white"
+            {...props}
+        >
+            {clicked ? (
+                <AiOutlineEyeInvisible className="h-5 w-5 " />
+            ) : (
+                <AiOutlineEye className="h-5 w-5"></AiOutlineEye>
+            )}
+        </button>
+    );
+};
 
 export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -24,15 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={ref}
                     {...props}
                 />
-                {eye && (
-                    <button
-                        type="button"
-                        onClick={e => handleClick(e)}
-                        className="absolute right-0 top-0 cursor-pointer p-2.5 text-stone-500 transition hover:text-stone-800 hover:dark:text-white"
-                    >
-                        <Eye className="h-5 w-5 " />
-                    </button>
-                )}
+                {eye && <Eye onClick={e => handleClick(e)} />}
             </>
         );
     }

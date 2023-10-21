@@ -1,5 +1,5 @@
-import { CircleDot } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { ImSpinner } from 'react-icons/im';
 
 import { Button, Form } from '@/components/ui';
 import useAuth from '@/hooks/auth/useAuth';
@@ -33,7 +33,7 @@ const AuthSignup = () => {
                     />
                     <Button disabled={isLoading} className="mt-2">
                         {isLoading && (
-                            <CircleDot className="mr-2 h-4 w-4 animate-spin" />
+                            <ImSpinner className="mr-2 h-4 w-4 animate-spin" />
                         )}
                         {t('signIn')}
                     </Button>

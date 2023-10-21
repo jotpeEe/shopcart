@@ -3,9 +3,9 @@
 import * as React from 'react';
 import { useCallback, useState } from 'react';
 
-import { Github } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import AuthLogin from './AuthLogin';
 import { AuthSocialButton } from './AuthSocialButton';
@@ -38,11 +38,11 @@ export function AuthForm() {
                 </div>
             </div>
             <div className="flex w-full gap-2">
-                <AuthSocialButton>
-                    <Github className="h-4 w-4" />
+                <AuthSocialButton type="github">
+                    <FaGithub className="h-4 w-4" />
                 </AuthSocialButton>
-                <AuthSocialButton>
-                    <Github className="h-4 w-4" />
+                <AuthSocialButton type="google">
+                    <FaGoogle className="h-4 w-4" />
                 </AuthSocialButton>
             </div>
             <div className="mt-6 flex justify-center gap-2 px-2 text-sm ">

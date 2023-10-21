@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     try {
         const { email, password } = await req.json();
 
-        const existingUser = await db.profile.findUnique({
+        const existingUser = await db.user.findUnique({
             where: {
                 email,
             },
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        const user = await db.profile.create({
+        const user = await db.user.create({
             data: {
                 email,
                 hashedPassword,

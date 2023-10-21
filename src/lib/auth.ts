@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
                     throw new Error('Invalid provided credentials');
                 }
 
-                const user = await db.profile.findUnique({
+                const user = await db.user.findUnique({
                     where: {
                         email: credentials.email,
                     },
