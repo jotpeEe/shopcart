@@ -5,6 +5,8 @@ import {
 
 export const locales = ['en', 'pl'] as const;
 
+export type Locales = (typeof locales)[number];
+
 // The `pathnames` object holds pairs of internal
 // and external paths, separated by locale.
 export const pathnames = {

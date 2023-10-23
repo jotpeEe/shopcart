@@ -1,4 +1,16 @@
 export { Button, buttonVariants } from './button';
+export { Calendar, type CalendarProps } from './calendar';
+export {
+    Command,
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+} from './command';
 export {
     DropdownMenu,
     DropdownMenuCheckboxItem,
@@ -27,5 +39,18 @@ export {
 } from './form';
 export { Input, type InputProps } from './input';
 export { Label } from './label';
+export { Popover, PopoverContent, PopoverTrigger } from './popover';
+export { RadioGroup, RadioGroupItem } from './radio-group';
+export {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectSeparator,
+    SelectTrigger,
+    SelectValue,
+} from './select';
+export { Textarea, type TextareaProps } from './textarea';
 export { Toaster } from './toaster';
 export { toast, useToast } from './use-toast';

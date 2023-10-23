@@ -3,6 +3,23 @@
         "title": "Zaloguj się",
         "description": "Wpisz email poniżej, aby się zalogować"
     },
+    "AppearanceForm": {
+        "toast": "Pdane wartości zostały zauktualizowane: ",
+        "langLabel": "Język",
+        "selectLang": "Wybierz Język",
+        "searchLangPlaceholder": "Znajdź język...",
+        "searchLangCommand": "Nie znaleziono żadnego języka.",
+        "langDescription": "Wybrany język będzie obowiązywał w całej aplikacji.",
+        "themeLabel": "Motyw koloru",
+        "themeDescription": "Wybierz motyw, który będzie obowiązywał w całej aplikacji.",
+        "themeLight": "Jasny",
+        "themeDark": "Ciemny",
+        "submitButton": "Zauktualizuj preferencje"
+    },
+    "AppearancePage": {
+        "title": "Wygląd",
+        "description": "Dostosuj wygląd aplikacji. Automatycznie przełączaj motywy dzienne i nocne."
+    },
     "AuthFooter": {
         "notice": "Polityka prywatności",
         "terms": "Zasady użytkowania",
@@ -29,6 +46,34 @@
         "passwordEmptyError": "Uzupełnij hasło",
         "serverErrorTitle": "Błąd serwera:",
         "passwordServerError": "Nieprawidłowe hasło"
+    },
+    "UserForm": {
+        "toast": "Pdane wartości zostały zauktualizowane:",
+        "nameLabel": "Imię",
+        "nameDescription": "Ogólnodostępna nazwa, którą będą widzieli inni użytkownicy. Może to być Twoje prawdziwe imię lub pseudonim. Możesz ją zmienić tylko raz na 30 dni.",
+        "emailDescription": "Możesz zarządzać zweryfikowanymi adresami e-mail w swoich",
+        "emailDescriptionLink": "opcjach email",
+        "bioDescriptionPre": "Możesz umieścić",
+        "bioDescriptionLink": "@wzmiankę",
+        "bioDescriptionPost": "odnoścnie innych użytkowników lub organizacji, aby połączyć Twój profil z nimi.",
+        "locationLabel": "Lokalizacja",
+        "locationDescription": "Lokalizacja może być przydatna podczas tworzenia wydarzeń w kalendarzu.",
+        "urlsDescription": "Dodaj linki do swojej witryny, bloga lub profili w mediach społecznościowych.",
+        "addUrl": "Add URL",
+        "submit": "Update profile",
+        "urlInvalidError": "Proszę podać poprawny adres URL. (np. https://przykład.pl)"
+    },
+    "UserPage": {
+        "title": "Użytkownik",
+        "description": "Tak będą Cię widzieć inni na tej stronie."
+    },
+    "UserSettings": {
+        "title": "Ustawienia",
+        "description": "Zarządzaj ustawieniami konta i konfiguruj preferencje poczty e-mail."
+    },
+    "UserSidebarNav": {
+        "user": "Użytkownik",
+        "appearance": "Wygląd"
     },
     "useSignup": {
         "emailEmptyError": "Uzupełnij adress email",

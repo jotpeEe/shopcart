@@ -32,7 +32,7 @@ const Eye = ({
 export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
     eye?: boolean;
-    handleClick: React.MouseEventHandler;
+    handleClick?: React.MouseEventHandler;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -49,7 +49,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={ref}
                     {...props}
                 />
-                {eye && <Eye onClick={e => handleClick(e)} />}
+                {eye && (
+                    <Eye
+                        onClick={e => {
+                            if (handleClick) handleClick(e);
+                        }}
+                    />
+                )}
             </>
         );
     }
