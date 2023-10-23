@@ -19,7 +19,6 @@
         "question": "New to ShopCart",
         "callToAction": "Create an account"
     },
-    "ModeToggle": {},
     "useLogin": {
         "toastPre": "You have been",
         "toastGreen": "logged in",
@@ -31,7 +30,14 @@
         "serverErrorTitle": "Server error:",
         "passwordServerError": "Invalid password"
     },
-
+    "UserSettings": {
+        "title": "Settings",
+        "description": "Manage your account settings and set e-mail preferences."
+    },
+    "UserSidebarNav": {
+        "user": "User",
+        "appearance": "Appearance"
+    },
     "useSignup": {
         "emailEmptyError": "Enter email",
         "emailInvalidError": "Invalid email",

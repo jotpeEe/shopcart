@@ -30,6 +30,14 @@
         "serverErrorTitle": "Błąd serwera:",
         "passwordServerError": "Nieprawidłowe hasło"
     },
+    "UserSettings": {
+        "title": "Ustawienia",
+        "description": "Zarządzaj ustawieniami konta i konfiguruj preferencje poczty e-mail."
+    },
+    "UserSidebarNav": {
+        "user": "Użytkownik",
+        "appearance": "Wygląd"
+    },
     "useSignup": {
         "emailEmptyError": "Uzupełnij adress email",
         "emailInvalidError": "Nieprawidłowy format adresu",
