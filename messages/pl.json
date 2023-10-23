@@ -3,6 +3,23 @@
         "title": "Zaloguj się",
         "description": "Wpisz email poniżej, aby się zalogować"
     },
+    "AppearanceForm": {
+        "toast": "Pdane wartości zostały zauktualizowane: ",
+        "langLabel": "Język",
+        "selectLang": "Wybierz Język",
+        "searchLangPlaceholder": "Znajdź język...",
+        "searchLangCommand": "Nie znaleziono żadnego języka.",
+        "langDescription": "Wybrany język będzie obowiązywał w całej aplikacji.",
+        "themeLabel": "Motyw koloru",
+        "themeDescription": "Wybierz motyw, który będzie obowiązywał w całej aplikacji.",
+        "themeLight": "Jasny",
+        "themeDark": "Ciemny",
+        "submitButton": "Zauktualizuj preferencje"
+    },
+    "AppearancePage": {
+        "title": "Wygląd",
+        "description": "Dostosuj wygląd aplikacji. Automatycznie przełączaj motywy dzienne i nocne."
+    },
     "AuthFooter": {
         "notice": "Polityka prywatności",
         "terms": "Zasady użytkowania",
