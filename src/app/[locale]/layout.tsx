@@ -3,11 +3,8 @@ import { Inter as FontSans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 
-import {
-    NextAuthProvider,
-    ThemeProvider,
-    ToasterProvider,
-} from '@/components/providers';
+import { NextAuthProvider, ThemeProvider } from '@/components/providers';
+import { Toaster } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 import './globals.css';
@@ -50,8 +47,8 @@ export default async function RootLayout({
                         disableTransitionOnChange
                     >
                         <NextAuthProvider>
-                            <ToasterProvider />
                             {children}
+                            <Toaster />
                         </NextAuthProvider>
                     </ThemeProvider>
                 </NextIntlClientProvider>

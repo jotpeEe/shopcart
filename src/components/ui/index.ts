@@ -27,3 +27,5 @@ export {
 } from './form';
 export { Input, type InputProps } from './input';
 export { Label } from './label';
+export { Toaster } from './toaster';
+export { toast, useToast } from './use-toast';
