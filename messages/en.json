@@ -21,15 +21,23 @@
     },
     "ModeToggle": {},
     "useLogin": {
-        "passwordError": "Enter password",
-        "emailError": "Enter email",
-        "emailServerError": "Invalid password",
-        "passwordServerError": "Invalid password",
-        "zodEmail": "Zły format adresu email"
+        "toastPre": "You have been",
+        "toastGreen": "logged in",
+        "toastPost": "successful.",
+        "emailEmptyError": "Enter email",
+        "emailNotExistError": "There is no account with that address.",
+        "emailInvalidError": "Invalid email",
+        "passwordEmptyError": "Enter password",
+        "serverErrorTitle": "Server error:",
+        "passwordServerError": "Invalid password"
     },
+
     "useSignup": {
-        "passwordError": "Enter password",
-        "emailError": "Enter email",
-        "emailServerError": "Email taken"
+        "emailEmptyError": "Enter email",
+        "emailInvalidError": "Invalid email",
+        "emailAlreadyExistsError": "Email already used",
+        "passwordEmptyError": "Enter password",
+        "passwordInvalidError": "Invalid password",
+        "passwordNoMatchError": "The passwords did not match"
     }
 }

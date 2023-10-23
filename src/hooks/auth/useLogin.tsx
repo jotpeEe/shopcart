@@ -1,29 +1,31 @@
-import { FormEventHandler, useEffect } from 'react';
+import { useMemo } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import { SubmitHandler, UseFormReturn, useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-const formSchema = z.object({
-    email: z.string().email().min(1, '| '),
-    password: z.string().min(1, '| '),
-});
-
-type LoginInput = z.infer<typeof formSchema>;
-
-export type LoginReturnType = {
-    form: UseFormReturn<LoginInput>;
-    handleSubmit: FormEventHandler<HTMLFormElement>;
-    isLoading: boolean;
-};
+import { toast } from '@/components/ui';
 
 export const useLogin = () => {
     const t = useTranslations('useLogin');
     const router = useRouter();
+
+    const formSchema = useMemo(
+        () =>
+            z.object({
+                email: z
+                    .string()
+                    .min(1, t('emailEmptyError'))
+                    .email({ message: t('emailInvalidError') }),
+                password: z.string().min(1, t('passwordEmptyError')),
+            }),
+        [t]
+    );
+
+    type LoginInput = z.infer<typeof formSchema>;
 
     const form = useForm<LoginInput>({
         resolver: zodResolver(formSchema),
@@ -33,22 +35,6 @@ export const useLogin = () => {
         },
     });
 
-    useEffect(() => {
-        const errors = Object.entries(form.formState.errors).map(
-            error => error[0]
-        );
-
-        errors.forEach(error => {
-            if (error === 'password') {
-                form.setError(error, { message: t('passwordError') });
-            }
-
-            if (error === 'email') {
-                form.setError(error, { message: t('emailError') });
-            }
-        });
-    }, [t, form, form.formState.errors]);
-
     const onSubmit: SubmitHandler<LoginInput> = async values => {
         try {
             await signIn('credentials', {
@@ -56,14 +42,22 @@ export const useLogin = () => {
                 redirect: false,
             }).then(callback => {
                 if (callback?.ok) {
-                    toast.success('Logged in');
+                    toast({
+                        description: (
+                            <span>
+                                {t('toastPre')}{' '}
+                                <span className="text-green-600">
+                                    {t('toastGreen')}
+                                </span>{' '}
+                                {t('toastPost')}
+                            </span>
+                        ),
+                    });
                     router.push('/home');
                 }
 
                 if (callback?.error) {
                     const { error } = callback;
-
-                    toast.error(error);
 
                     if (error.toLowerCase().includes('password')) {
                         const message = t('passwordServerError');
@@ -71,13 +65,25 @@ export const useLogin = () => {
                         form.setError('password', {
                             message,
                         });
+
+                        toast({
+                            variant: 'destructive',
+                            title: t('serverErrorTitle'),
+                            description: message,
+                        });
                     }
 
                     if (error.toLowerCase().includes('email')) {
-                        const message = t('emailServerError');
+                        const message = t('emailNotExistError');
 
                         form.setError('email', {
                             message,
+                        });
+
+                        toast({
+                            variant: 'destructive',
+                            title: t('serverErrorTitle'),
+                            description: message,
                         });
                     }
                 }

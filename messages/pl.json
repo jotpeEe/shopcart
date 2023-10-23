@@ -20,15 +20,22 @@
         "callToAction": "Załóż konto"
     },
     "useLogin": {
-        "passwordError": "Wpisz hasło",
-        "emailError": "Wpisz adress email",
-        "emailServerError": "Konto z podanym adresem juz istnieje",
-        "passwordServerError": "Nieprawidłowe hasło",
-        "zodEmail": "Invalid email"
+        "toastPre": "Zostałaś/eś",
+        "toastGreen": "zalogowana/y",
+        "toastPost": "pomyślnie.",
+        "emailInvalidError": "Nieprawidłowy format adresu",
+        "emailEmptyError": "Uzupełnij adress email",
+        "emailNotExistError": "Konto z podanym adresem nie istnieje",
+        "passwordEmptyError": "Uzupełnij hasło",
+        "serverErrorTitle": "Błąd serwera:",
+        "passwordServerError": "Nieprawidłowe hasło"
     },
     "useSignup": {
-        "passwordError": "Wpisz hasło",
-        "emailError": "Wpisz adress email",
-        "emailServerError": "Istnieje konto z podanym adresem"
+        "emailEmptyError": "Uzupełnij adress email",
+        "emailInvalidError": "Nieprawidłowy format adresu",
+        "emailAlreadyExistsError": "Istnieje konto z podanym adresem",
+        "passwordEmptyError": "Uzupełnij hasło",
+        "passwordInvalidError": "Hasło jest nieprawidłowe",
+        "passwordNoMatchError": "Podane hasła nie są jednakowe"
     }
 }

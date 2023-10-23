@@ -2,13 +2,13 @@ import { useTranslations } from 'next-intl';
 import { ImSpinner } from 'react-icons/im';
 
 import { Button, Form } from '@/components/ui';
-import useAuth from '@/hooks/auth/useAuth';
+import { useLogin } from '@/hooks/auth';
 
 import { AuthFormitem } from './AuthFormItem';
 
 const AuthLogin = () => {
     const t = useTranslations('AuthForm');
-    const { form, isLoading, handleSubmit } = useAuth('login');
+    const { form, isLoading, handleSubmit } = useLogin();
 
     return (
         <Form {...form}>
