@@ -30,6 +30,26 @@
         "serverErrorTitle": "Server error:",
         "passwordServerError": "Invalid password"
     },
+    "UserForm": {
+        "toast": "You submitted the following values:",
+        "nameLabel": "Name",
+        "nameDescription": "This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.",
+        "emailDescription": "You can manage verified email adresses in your",
+        "emailDescriptionLink": "email settings",
+        "bioDescriptionPre": "You can",
+        "bioDescriptionLink": "@mention",
+        "bioDescriptionPost": "other users and organizations to link to them.",
+        "locationLabel": "Location",
+        "locationDescription": "Location can be usefull when making calendar events.",
+        "urlsDescription": "Add links to your website, blog, or social media profiles.",
+        "addUrl": "Add URL",
+        "submit": "Update profile",
+        "urlInvalidError": "Please enter a valid URL. (ex. https://example.com)"
+    },
+    "UserPage": {
+        "title": "User",
+        "description": "This is how others will see you on this site."
+    },
     "UserSettings": {
         "title": "Settings",
         "description": "Manage your account settings and set e-mail preferences."
