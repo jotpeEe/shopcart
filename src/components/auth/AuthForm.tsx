@@ -16,7 +16,7 @@ const AuthSignup = dynamic(() => import('./AuthSignup'), {
 
 type Variant = 'LOGIN' | 'SIGNUP';
 
-export function AuthForm() {
+const AuthForm = () => {
     const [variant, setVariant] = useState<Variant>('LOGIN');
     const t = useTranslations('AuthForm');
 
@@ -60,4 +60,6 @@ export function AuthForm() {
             </div>
         </div>
     );
-}
+};
+
+export default AuthForm;

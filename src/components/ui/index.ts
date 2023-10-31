@@ -1,5 +1,14 @@
+export { Avatar, AvatarFallback, AvatarImage } from './avatar';
 export { Button, buttonVariants } from './button';
 export { Calendar, type CalendarProps } from './calendar';
+export {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from './card';
 export {
     Command,
     CommandDialog,

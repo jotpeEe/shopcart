@@ -1,4 +1,10 @@
-import { UserAppearanceForm, UserCategoryHeader } from '@/components/user';
+import dynamic from 'next/dynamic';
+
+import { UserCategoryHeader } from '@/components/user';
+
+const UserAppearanceForm = dynamic(
+    () => import('../../../../../../components/user/UserAppearanceForm')
+);
 
 export default function SettingsAppearancePage() {
     return (

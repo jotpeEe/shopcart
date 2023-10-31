@@ -26,10 +26,10 @@ export function ModeToggle({ size = 'base' }: ModeToggleProps) {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="h-[25px] w-[26px]"
+                    className="h-[32px] w-[32px]"
                 >
                     <LuSun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <LuMoon className="absolute h-3 w-3 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    <LuMoon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                     <span className="sr-only">Toggle theme</span>
                 </Button>
             </DropdownMenuTrigger>

@@ -177,7 +177,7 @@ const DropdownMenuShortcut = ({
     return (
         <span
             className={cn(
-                'ml-auto text-xs tracking-widest opacity-60',
+                'absolute right-0 top-0 z-0 cursor-pointer p-2 text-xs tracking-widest opacity-60',
                 className
             )}
             {...props}

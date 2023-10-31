@@ -32,10 +32,10 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
-export const UserForm = ({
+const UserForm = ({
     user: { id, name, email, bio, location },
 }: {
-    user: User;
+    user: Partial<User>;
 }) => {
     const t = useTranslations('UserForm');
     const router = useRouter();
@@ -268,3 +268,5 @@ export const UserForm = ({
         </Form>
     );
 };
+
+export default UserForm;

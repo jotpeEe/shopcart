@@ -2,38 +2,43 @@
 
 import { HTMLAttributes, useMemo } from 'react';
 
+import { UserRole } from '@prisma/client';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 import { buttonVariants } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 export function UserSidebarNav({
     className,
+    role,
     ...props
-}: HTMLAttributes<HTMLElement>) {
+}: HTMLAttributes<HTMLElement> & { role?: UserRole }) {
     const t = useTranslations('UserSidebarNav');
     const pathname = usePathname();
-    const locale = useLocale();
-    const params = useParams<{ userId: string; locale: string }>();
+    const params = useParams<{
+        userId?: string;
+        locale: string;
+        adminId?: string;
+    }>();
 
     const items = useMemo(
         () => [
             {
                 title: t('user'),
                 href: `${
-                    locale !== 'en' ? `/${locale}` : ''
-                }/user/${params?.userId}`,
+                    params?.locale !== 'en' ? `/${params?.locale}` : ''
+                }/user/${params?.userId}/settings`,
             },
             {
                 title: t('appearance'),
                 href: `${
-                    locale !== 'en' ? `/${locale}` : ''
-                }/user/${params?.userId}/appearance`,
+                    params?.locale !== 'en' ? `/${params?.locale}` : ''
+                }/user/${params?.userId}/settings/appearance`,
             },
         ],
-        [params, locale, t]
+        [params, t]
     );
 
     return (

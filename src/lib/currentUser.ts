@@ -21,8 +21,11 @@ export default async function getCurrentUser() {
             return null;
         }
 
+        const { hashedPassword, emailVerified, updatedAt, createdAt, ...user } =
+            currentUser;
+
         return {
-            ...currentUser,
+            ...user,
         };
     } catch (error: any) {
         console.log(error);
