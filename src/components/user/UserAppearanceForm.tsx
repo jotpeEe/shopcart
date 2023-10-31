@@ -55,7 +55,7 @@ const defaultValues: Partial<AppearanceFormValues> = {
     theme: 'light',
 };
 
-export const UserAppearanceForm = () => {
+const UserAppearanceForm = () => {
     const { theme: currTheme, setTheme } = useTheme();
     const t = useTranslations('AppearanceForm');
     const [isPending, startTransition] = useTransition();
@@ -98,6 +98,7 @@ export const UserAppearanceForm = () => {
             startTransition(() => {
                 router.replace(pathname, { locale: data.language });
             });
+            router.refresh();
         }
     }
 
@@ -261,3 +262,5 @@ export const UserAppearanceForm = () => {
         </Form>
     );
 };
+
+export default UserAppearanceForm;

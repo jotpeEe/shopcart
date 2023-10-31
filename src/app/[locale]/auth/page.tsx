@@ -1,7 +1,8 @@
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
-import { AuthForm } from '@/components';
-import { AuthFooter } from '@/components/auth/AuthFooter';
+const AuthForm = dynamic(() => import('../../../components/auth/AuthForm'));
+const AuthFooter = dynamic(() => import('../../../components/auth/AuthFooter'));
 
 export default function Auth() {
     const t = useTranslations('Home');

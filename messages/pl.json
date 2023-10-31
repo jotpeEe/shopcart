@@ -63,6 +63,13 @@
         "submit": "Update profile",
         "urlInvalidError": "Proszę podać poprawny adres URL. (np. https://przykład.pl)"
     },
+    "UserNav": {
+        "linkTitleProfile": "Użytkownik",
+        "linkTitleCustomers": "Klienci",
+        "linkTitleSettings": "Ustawienia",
+        "linkTitleProducts": "Produkty",
+        "logout": "Wyloguj"
+    },
     "UserPage": {
         "title": "Użytkownik",
         "description": "Tak będą Cię widzieć inni na tej stronie."

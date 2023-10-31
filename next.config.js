@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
-
 const nextConfig = {
     async redirects() {
         return [
@@ -14,4 +12,9 @@ const nextConfig = {
     },
 };
 
-module.exports = withNextIntl(nextConfig);
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+});
+const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
+
+module.exports = withBundleAnalyzer(withNextIntl(nextConfig));

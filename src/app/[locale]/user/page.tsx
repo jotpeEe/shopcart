@@ -2,12 +2,16 @@ import { redirect } from 'next/navigation';
 
 import getCurrentUser from '@/lib/currentUser';
 
-export default async function UserSettingsPage() {
+export default async function Home() {
     const user = await getCurrentUser();
 
     if (!user) {
         redirect('/auth');
     }
 
-    return <div className="space-y-6">UserPage</div>;
+    if (user.role === 'ADMIN') {
+        redirect(`/admin/${user.id}`);
+    }
+
+    redirect(`/user/${user.id}`);
 }

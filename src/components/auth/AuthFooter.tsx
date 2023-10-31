@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { ModeToggle } from '..';
 import LocaleSwitcher from '../LocaleSwitcher';
 
-export const AuthFooter = () => {
+const AuthFooter = () => {
     const t = useTranslations('AuthFooter');
     return (
         <footer className="absolute bottom-0 left-0 mx-[72px] mb-0 mt-0 grid grid-cols-8 gap-3 uppercase lg:mx-12 lg:mb-6 lg:mt-4">
@@ -52,3 +52,5 @@ export const AuthFooter = () => {
         </footer>
     );
 };
+
+export default AuthFooter;
