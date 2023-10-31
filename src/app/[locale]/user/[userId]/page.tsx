@@ -9,5 +9,5 @@ export default async function UserSettingsPage() {
         redirect('/auth');
     }
 
-    return <div className="space-y-6">UserPage</div>;
+    return <div className="space-y-6"></div>;
 }

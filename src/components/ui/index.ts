@@ -1,4 +1,10 @@
 export { Avatar, AvatarFallback, AvatarImage } from './avatar';
+export {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from './accordion';
 export { Button, buttonVariants } from './button';
 export { Calendar, type CalendarProps } from './calendar';
 export {
@@ -60,6 +66,7 @@ export {
     SelectTrigger,
     SelectValue,
 } from './select';
+export { Slider } from './slider';
 export { Textarea, type TextareaProps } from './textarea';
 export { Toaster } from './toaster';
 export { toast, useToast } from './use-toast';
