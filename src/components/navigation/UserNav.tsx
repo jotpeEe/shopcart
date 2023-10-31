@@ -56,7 +56,9 @@ const UserNavItem = ({ title, href, shortcut }: LinkProps) => {
             >
                 {title}
             </Link>
-            <DropdownMenuShortcut>⌘{shortcut}</DropdownMenuShortcut>
+            <DropdownMenuShortcut>
+                ⌘{shortcut.toUpperCase()}
+            </DropdownMenuShortcut>
         </DropdownMenuItem>
     );
 };
@@ -69,10 +71,10 @@ const UserNav = () => {
     useEffect(() => {
         const handleKeydown = (e: KeyboardEvent) => {
             const action = {
-                s: () => router.push(links[0].href),
-                u: () => router.push(links[1].href),
-                c: () => router.push(links[2].href),
-                p: () => router.push(links[3].href),
+                [links[0].shortcut]: () => router.push(links[0].href),
+                [links[1].shortcut]: () => router.push(links[1].href),
+                [links[2].shortcut]: () => router.push(links[2].href),
+                [links[3].shortcut]: () => router.push(links[3].href),
                 q: () => signOut({ callbackUrl: '/auth' }),
             }[e.key];
 

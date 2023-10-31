@@ -12,22 +12,22 @@ const useNavLink = () => {
         {
             title: t('linkTitleProfile'),
             href: `${prefix}`,
-            shortcut: 'U',
+            shortcut: 'u',
         },
         {
             title: t('linkTitleCustomers'),
             href: `${prefix}/customers`,
-            shortcut: 'C',
+            shortcut: 'c',
         },
         {
             title: t('linkTitleProducts'),
             href: `${prefix}/products`,
-            shortcut: 'P',
+            shortcut: 'p',
         },
         {
             title: t('linkTitleSettings'),
             href: `${prefix}/settings`,
-            shortcut: 'S',
+            shortcut: 's',
         },
     ] as const;
 
