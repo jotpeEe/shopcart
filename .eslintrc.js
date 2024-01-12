@@ -1,10 +1,6 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    extends: [
-        'next/core-web-vitals',
-        'prettier',
-        'plugin:@typescript-eslint/recommended',
-    ],
+    extends: ['next/core-web-vitals', 'prettier'],
     plugins: ['prettier', 'unused-imports', '@typescript-eslint'],
     rules: {
         'unused-imports/no-unused-imports-ts': 'error',
