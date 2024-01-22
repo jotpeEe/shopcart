@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:analitics": "ANALYZE=true next build",
         "start": "next start",
         "studio": "dotenv -e .env.development prisma studio",
         "initDB": "dotenv -e .env.development prisma db push && prisma generate",
@@ -29,6 +30,7 @@
     "devDependencies": {
         "@types/node": "^20.11.0",
         "@types/react": "^18.2.47",
+        "@next/bundle-analyzer": "^14.1.0",
         "@types/react-dom": "^18.2.18",
         "@typescript-eslint/eslint-plugin": "^6.18.1",
         "@typescript-eslint/parser": "^6.18.1",
