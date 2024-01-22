@@ -9,6 +9,21 @@
                 "and": "and",
                 "post": "apply"
             }
+        },
+        "messages": {
+            "email": {
+                "alreadyExist": "Email already used",
+                "empty": "Enter email",
+                "invalid": "Invalid email"
+            },
+            "password": {
+                "empty": "Enter password",
+                "noMatch": "Passwords did not match"
+            },
+            "server": {
+                "invalid": "Invalid fields",
+                "signedIn": "User created"
+            }
         }
     }
 }

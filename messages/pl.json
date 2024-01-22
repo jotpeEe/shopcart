@@ -9,6 +9,21 @@
                 "and": "oraz",
                 "post": "obowiązują"
             }
+        },
+        "messages": {
+            "email": {
+                "alreadyExist": "E-mail już używany",
+                "empty": "Wpisz adres e-mail",
+                "invalid": "Nieprawidłowy adres e-mail"
+            },
+            "password": {
+                "empty": "Wprowadź hasło",
+                "noMatch": "Hasła nie pasują"
+            },
+            "server": {
+                "invalid": "Nieprawidłowy format użytkownika lub hasła",
+                "signedIn": "Konto założone"
+            }
         }
     }
 }
