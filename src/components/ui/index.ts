@@ -16,4 +16,5 @@ export {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from './dropdown-menu';
+export { Input, type InputProps } from './input';
 export { toast } from './use-toast';
