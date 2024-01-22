@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { SessionProvider } from 'next-auth/react';
 import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 
@@ -25,7 +26,7 @@ const Providers: React.FC<ProvidersProps> = ({ children, messages, locale }) => 
                 storageKey="test-theme"
                 disableTransitionOnChange
             >
-                {children}
+                <SessionProvider>{children}</SessionProvider>
             </ThemeProvider>
         </NextIntlClientProvider>
     );
