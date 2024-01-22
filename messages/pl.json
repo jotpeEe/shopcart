@@ -1,6 +1,14 @@
 {
-    "Home": {
-        "title": "Zaloguj się",
-        "description": "Wpisz email poniżej, aby się zalogować"
+    "auth": {
+        "footer": {
+            "notice": "Polityka prywatności",
+            "terms": "Zasady użytkowania",
+            "cookies": "Ustawienia cookies",
+            "hcaptcha": {
+                "pre": "Strona jest chroniona przez hcaptcha i jej",
+                "and": "oraz",
+                "post": "obowiązują"
+            }
+        }
     }
 }

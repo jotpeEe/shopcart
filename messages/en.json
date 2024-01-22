@@ -1,6 +1,14 @@
 {
-    "Home": {
-        "title": "Sign in",
-        "description": "Enter your email below to sign in"
+    "auth": {
+        "footer": {
+            "notice": "Privacy notice",
+            "terms": "Terms of use",
+            "cookies": "Cookie preferences",
+            "hcaptcha": {
+                "pre": "This site is protected by hCaptcha and its",
+                "and": "and",
+                "post": "apply"
+            }
+        }
     }
 }
