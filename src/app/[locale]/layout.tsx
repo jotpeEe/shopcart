@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 
-const inter = Inter({ subsets: ['latin'] });
+import Providers from '@/components/Providers';
+import { cn } from '@/lib/utils';
+import { locales } from '@/navigation';
+
+const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -17,15 +21,25 @@ type RootLayoutProps = {
     };
 };
 
-const RootLayout = ({ children, params: { locale } }: RootLayoutProps) => {
-    const messages = useMessages();
+export const generateStaticParams = () => {
+    return locales.map(locale => ({ locale }));
+};
+
+const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => {
+    unstable_setRequestLocale(locale);
+    const messages = await getMessages();
 
     return (
-        <html lang={locale}>
-            <body className={inter.className}>
-                <NextIntlClientProvider locale={locale} messages={messages}>
+        <html lang={locale} suppressHydrationWarning>
+            <body
+                className={cn(
+                    'min-h-screen bg-background font-sans antialiased',
+                    fontSans.variable
+                )}
+            >
+                <Providers locale={locale} messages={messages}>
                     {children}
-                </NextIntlClientProvider>
+                </Providers>
             </body>
         </html>
     );
