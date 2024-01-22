@@ -1,11 +1,14 @@
 {
-    "name": "next-auth-tailwind-eslint",
+    "name": "shopcart",
     "version": "0.1.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "studio": "dotenv -e .env.development prisma studio",
+        "initDB": "dotenv -e .env.development prisma db push && prisma generate",
+        "migrateDB": "dotenv -e .env.development prisma migrate dev && prisma generate",
         "lint": "next lint --fix src",
         "format": "prettier --write .",
         "prepare": "husky install"
@@ -16,6 +19,7 @@
         }
     },
     "dependencies": {
+        "@prisma/client": "^5.8.1",
         "next": "14.0.4",
         "next-intl": "^3.4.2",
         "react": "^18.2.0",
@@ -38,6 +42,7 @@
         "postcss": "^8.4.33",
         "prettier": "^3.1.1",
         "prettier-plugin-tailwindcss": "^0.5.11",
+        "prisma": "^5.8.1",
         "tailwindcss": "^3.4.1",
         "typescript": "^5.3.3"
     }
