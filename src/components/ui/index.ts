@@ -16,3 +16,4 @@ export {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from './dropdown-menu';
+export { toast } from './use-toast';
