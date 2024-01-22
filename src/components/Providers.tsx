@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
+import { ThemeProvider } from 'next-themes';
 
 type ProvidersProps = {
     messages: AbstractIntlMessages | undefined;
@@ -17,7 +18,15 @@ const Providers: React.FC<ProvidersProps> = ({ children, messages, locale }) => 
             messages={messages}
             timeZone="Europe/London"
         >
-            {children}
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                enableSystem={false}
+                storageKey="test-theme"
+                disableTransitionOnChange
+            >
+                {children}
+            </ThemeProvider>
         </NextIntlClientProvider>
     );
 };
