@@ -24,6 +24,12 @@
                 "invalid": "Nieprawidłowy format użytkownika lub hasła",
                 "signedIn": "Konto założone"
             }
+        },
+        "register": {
+            "button": "Załóż konto",
+            "error": "Błąd",
+            "placeholders": ["e-mail@przyklad.pl", "Hasło", "Potwierdź hasło"],
+            "success": "Sukces"
         }
     }
 }

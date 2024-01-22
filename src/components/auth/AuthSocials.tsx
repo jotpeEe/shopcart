@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Loader } from 'lucide-react';
@@ -6,6 +8,7 @@ import { signIn } from 'next-auth/react';
 import { Github, Google } from '@/components/icons';
 import { Button } from '@/components/ui';
 import { type Provider } from '@/lib/auth';
+import { DEFAULT_REDIRECT } from '@/lib/constants';
 
 type AuthSocialsProps = {
     providers: Provider[];
@@ -23,7 +26,9 @@ export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
         e.preventDefault();
         setIsLoading(true);
 
-        await signIn(provider, { callbackUrl: '/' }).then(() => setIsLoading(false));
+        await signIn(provider, { callbackUrl: DEFAULT_REDIRECT }).then(() =>
+            setIsLoading(false)
+        );
     };
 
     return (

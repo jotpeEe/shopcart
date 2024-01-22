@@ -24,6 +24,12 @@
                 "invalid": "Invalid fields",
                 "signedIn": "User created"
             }
+        },
+        "register": {
+            "button": "Sign up with email",
+            "error": "Error",
+            "placeholders": ["email@example.com", "Password", "Confirm password"],
+            "success": "Success"
         }
     }
 }
