@@ -16,5 +16,17 @@ export {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from './dropdown-menu';
+export {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+    FormTextInput,
+} from './form';
 export { Input, type InputProps } from './input';
+export { Label } from './label';
+export { Link } from './link';
 export { toast } from './use-toast';
