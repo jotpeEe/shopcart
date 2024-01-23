@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
+import { getServerSession } from 'next-auth';
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 
 import Providers from '@/components/Providers';
+import { authOptions } from '@/lib/auth';
 import { cn } from '@/lib/utils';
 import { locales } from '@/navigation';
 
@@ -25,9 +27,10 @@ export const generateStaticParams = () => {
     return locales.map(locale => ({ locale }));
 };
 
-const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => {
+const LocaleLayout = async ({ children, params: { locale } }: RootLayoutProps) => {
     unstable_setRequestLocale(locale);
     const messages = await getMessages();
+    const session = await getServerSession(authOptions);
 
     return (
         <html lang={locale} suppressHydrationWarning>
@@ -37,7 +40,7 @@ const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => 
                     fontSans.variable
                 )}
             >
-                <Providers locale={locale} messages={messages}>
+                <Providers locale={locale} messages={messages} session={session}>
                     {children}
                 </Providers>
             </body>
@@ -45,4 +48,4 @@ const RootLayout = async ({ children, params: { locale } }: RootLayoutProps) => 
     );
 };
 
-export default RootLayout;
+export default LocaleLayout;
