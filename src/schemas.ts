@@ -1,5 +1,15 @@
 import { z } from 'zod';
 
+export const LoginSchema = z.object({
+    email: z
+        .string()
+        .min(1, { message: 'messages.email.empty' })
+        .email({ message: 'messages.email.invalid' }),
+    password: z.string().min(1, { message: 'messages.password.empty' }),
+});
+
+export type LoginSchemaType = z.infer<typeof LoginSchema>;
+
 export const RegisterSchema = z
     .object({
         email: z
@@ -13,7 +23,7 @@ export const RegisterSchema = z
         if (passwordConfirm !== password) {
             ctx.addIssue({
                 code: 'custom',
-                message: 'password.noMatch',
+                message: 'messages.password.noMatch',
                 path: ['passwordConfirm'],
             });
         }

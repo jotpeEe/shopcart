@@ -14,15 +14,23 @@
             "email": {
                 "alreadyExist": "Email already used",
                 "empty": "Enter email",
-                "invalid": "Invalid email"
+                "invalid": "Invalid email",
+                "notExist": "There is no account with that address"
             },
             "password": {
                 "empty": "Enter password",
+                "invalid": "Invalid password",
                 "noMatch": "Passwords did not match"
             },
             "server": {
                 "invalid": "Invalid fields",
-                "signedIn": "User created"
+                "loggedIn": "You have been logged in successful",
+                "signedIn": "User created",
+                "error": "Ups, something went wrong"
+            },
+            "response": {
+                "error": "Error",
+                "success": "Success"
             }
         },
         "register": {

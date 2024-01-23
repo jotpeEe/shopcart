@@ -14,15 +14,23 @@
             "email": {
                 "alreadyExist": "E-mail już używany",
                 "empty": "Wpisz adres e-mail",
-                "invalid": "Nieprawidłowy adres e-mail"
+                "invalid": "Nieprawidłowy adres e-mail",
+                "notExist": "Nie ma konta o tym adresie"
             },
             "password": {
                 "empty": "Wprowadź hasło",
+                "invalid": "Nieprawidłowe hasło",
                 "noMatch": "Hasła nie pasują"
             },
             "server": {
                 "invalid": "Nieprawidłowy format użytkownika lub hasła",
-                "signedIn": "Konto założone"
+                "loggedIn": "Logowanie do konta pomyślne",
+                "signedIn": "Konto założone",
+                "error": "Ups, coś poszło nie tak"
+            },
+            "response": {
+                "error": "Błąd",
+                "success": "Sukces"
             }
         },
         "register": {
