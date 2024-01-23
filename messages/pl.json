@@ -10,6 +10,15 @@
                 "post": "obowiązują"
             }
         },
+        "login": {
+            "header": "Zaloguj się",
+            "description": "Podaj e-mail oraz hasło, aby się zalogować",
+            "placeholders": ["email@example.com", "Twoje hasło"],
+            "separator": "Lub zaloguj się za pomocą",
+            "question": "Pierwszy raz w ShopCart?",
+            "button": "Zaloguj się",
+            "callToAction": "Załóż konto"
+        },
         "messages": {
             "email": {
                 "alreadyExist": "E-mail już używany",
@@ -35,8 +44,13 @@
         },
         "register": {
             "button": "Załóż konto",
+            "callToAction": "Zaloguj się",
+            "description": "Podaj e-mail oraz hasło, aby założyć konto",
             "error": "Błąd",
+            "header": "Załóż konto",
+            "question": "Masz już konto?",
             "placeholders": ["e-mail@przyklad.pl", "Hasło", "Potwierdź hasło"],
+            "separator": "Lub zaloguj się za pomocą",
             "success": "Sukces"
         }
     }

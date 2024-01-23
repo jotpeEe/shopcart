@@ -10,6 +10,15 @@
                 "post": "apply"
             }
         },
+        "login": {
+            "header": "Log in",
+            "description": "Enter your email below to log in",
+            "placeholders": ["email@example.com", "Your password"],
+            "separator": "Or log in with",
+            "question": "New to ShopCart",
+            "button": "Log in with email",
+            "callToAction": "Sign up"
+        },
         "messages": {
             "email": {
                 "alreadyExist": "Email already used",
@@ -35,8 +44,13 @@
         },
         "register": {
             "button": "Sign up with email",
-            "error": "Error",
             "placeholders": ["email@example.com", "Password", "Confirm password"],
+            "header": "Sign up",
+            "description": "Enter your email below to sign up",
+            "separator": "Or sign up with",
+            "question": "Already have an account?",
+            "callToAction": "Log in",
+            "error": "Error",
             "success": "Success"
         }
     }
