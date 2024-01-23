@@ -1,13 +1,10 @@
 import { type PropsWithChildren } from 'react';
+import './[locale]/globals.css';
 
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
-const RootLayout = ({ children }: PropsWithChildren) => (
-    <html lang="en">
-        <body className={inter.className}>{children}</body>
-    </html>
-);
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+const RootLayout = ({ children }: PropsWithChildren) => {
+    return children;
+};
 
 export default RootLayout;
