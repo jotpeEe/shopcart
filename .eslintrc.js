@@ -1,7 +1,11 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
-    extends: ['next/core-web-vitals', 'prettier'],
-    plugins: ['prettier', 'unused-imports', '@typescript-eslint'],
+    extends: [
+        'next/core-web-vitals',
+        'plugin:prettier/recommended',
+        'plugin:testing-library/react',
+    ],
+    plugins: ['unused-imports', '@typescript-eslint', 'jest-dom'],
     rules: {
         'unused-imports/no-unused-imports-ts': 'error',
         'prettier/prettier': 'error',
