@@ -1,11 +1,10 @@
 services:
-  
-  app:
-    build:
-      context: ../../
-      dockerfile: docker/production/Dockerfile
-    image: jotpeee/shopcart:prod
-    volumes:
+    app:
+        build:
+            context: ../../
+            dockerfile: docker/production/Dockerfile
+        image: jotpeee/shopcart:prod
+        volumes:
             - ./:/usr/src/app
-    ports:
-      - '3000:3000'
+        ports:
+            - '3000:3000'

@@ -1,32 +1,30 @@
 version: '3.7'
 
 services:
-  
-  postgres:
-    image: postgres:latest
-    container_name: postgres
-    volumes:
-        - postgres:/var/lib/postgresql/data
-    ports:
-        - '5432:5432'
-    env_file:
-        - ../../.env.development
+    postgres:
+        image: postgres:latest
+        container_name: postgres
+        volumes:
+            - postgres:/var/lib/postgresql/data
+        ports:
+            - '5432:5432'
+        env_file:
+            - ../../.env.development
 
-  app:
-    build:
-      context: ../../
-      dockerfile: docker/development/Dockerfile
-    image: shopcart:develop
-    depends_on:
-      - postgres
-    links:
-      - postgres
-    volumes:
+    app:
+        build:
+            context: ../../
+            dockerfile: docker/development/Dockerfile
+        image: shopcart:develop
+        depends_on:
+            - postgres
+        links:
+            - postgres
+        volumes:
             - ./:/usr/src/app
-    ports:
-      - '3000:3000'
+        ports:
+            - '3000:3000'
 
 volumes:
     postgres:
-        driver: 
-          local
+        driver: local
