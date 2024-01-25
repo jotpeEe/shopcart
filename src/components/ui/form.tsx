@@ -26,6 +26,7 @@ type FormFieldContextValue<
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
     name: TName;
+    noLabel?: boolean;
 };
 
 const FormFieldContext = React.createContext<FormFieldContextValue>(
@@ -36,10 +37,11 @@ const FormField = <
     TFieldValues extends FieldValues = FieldValues,
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
+    noLabel,
     ...props
-}: ControllerProps<TFieldValues, TName>) => {
+}: ControllerProps<TFieldValues, TName> & { noLabel?: boolean }) => {
     return (
-        <FormFieldContext.Provider value={{ name: props.name }}>
+        <FormFieldContext.Provider value={{ name: props.name, noLabel }}>
             <Controller {...props} />
         </FormFieldContext.Provider>
     );
@@ -60,6 +62,7 @@ const useFormField = () => {
 
     return {
         id,
+        noLabel: fieldContext.noLabel,
         name: fieldContext.name,
         formItemId: `${id}-form-item`,
         formDescriptionId: `${id}-form-item-description`,
@@ -93,13 +96,16 @@ const FormLabel = React.forwardRef<
     React.ElementRef<typeof LabelPrimitive.Root>,
     React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
 >(({ className, ...props }, ref) => {
-    const { error, formItemId } = useFormField();
+    const { error, formItemId, noLabel } = useFormField();
+
+    if (noLabel) return null;
 
     return (
         <Label
             ref={ref}
             className={cn(error && 'text-destructive', className)}
             htmlFor={formItemId}
+            id={formItemId}
             {...props}
         />
     );
@@ -110,7 +116,8 @@ const FormControl = React.forwardRef<
     React.ElementRef<typeof Slot>,
     React.ComponentPropsWithoutRef<typeof Slot>
 >(({ ...props }, ref) => {
-    const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
+    const { error, formItemId, formDescriptionId, formMessageId, noLabel } =
+        useFormField();
 
     return (
         <Slot
@@ -120,6 +127,7 @@ const FormControl = React.forwardRef<
                 !error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`
             }
             aria-invalid={!!error}
+            aria-labelledby={noLabel ? undefined : formItemId}
             {...props}
         />
     );
@@ -170,50 +178,32 @@ const FormMessage = React.forwardRef<
 });
 FormMessage.displayName = 'FormMessage';
 
-type FormTextInputProps = {
+type FormTextInputProps = React.HTMLAttributes<HTMLInputElement> & {
     name: string;
     placeholder: string;
     disabled?: boolean;
     label?: boolean;
+    noMessage?: boolean;
 };
 
-const FormTextInput = ({ name, label = false, ...props }: FormTextInputProps) => {
-    const type = name.includes('password') ? 'password' : 'text';
-
-    const inputRef = React.useRef<HTMLInputElement | null>(null);
-    const [inputType, setInputType] = React.useState<'text' | 'password'>(type);
+const FormTextInput = ({ name, label, noMessage, ...props }: FormTextInputProps) => {
+    const type = name.toLowerCase().includes('password') ? 'password' : 'text';
+    const isPassword = type === 'password';
 
     const form = useFormContext();
-
-    const handleInputClick = (e: React.MouseEvent) => {
-        e.preventDefault();
-        setInputType(prev => (prev === 'text' ? 'password' : 'text'));
-
-        const element = inputRef.current;
-        element?.focus();
-    };
 
     return (
         <FormField
             control={form.control}
+            noLabel={!label}
             name={name}
-            render={({ field: { ref, ...field } }) => (
-                <FormItem className={cn(type === 'password' && 'relative')}>
-                    {label && <FormLabel>{name}</FormLabel>}
+            render={({ field }) => (
+                <FormItem className={cn(isPassword && 'relative')}>
+                    <FormLabel>{name}</FormLabel>
                     <FormControl>
-                        <Input
-                            ref={e => {
-                                ref(e);
-                                inputRef.current = e;
-                            }}
-                            handleClick={handleInputClick}
-                            type={inputType}
-                            eye={name.toLowerCase().includes('password')}
-                            {...props}
-                            {...field}
-                        />
+                        <Input {...props} type={type} {...field} />
                     </FormControl>
-                    <FormMessage />
+                    {!noMessage && <FormMessage />}
                 </FormItem>
             )}
         />
