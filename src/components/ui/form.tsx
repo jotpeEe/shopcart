@@ -183,12 +183,10 @@ type FormTextInputProps = React.HTMLAttributes<HTMLInputElement> & {
     placeholder: string;
     disabled?: boolean;
     label?: boolean;
-    noMessage?: boolean;
 };
 
-const FormTextInput = ({ name, label, noMessage, ...props }: FormTextInputProps) => {
+const FormTextInput = ({ name, label, ...props }: FormTextInputProps) => {
     const type = name.toLowerCase().includes('password') ? 'password' : 'text';
-    const isPassword = type === 'password';
 
     const form = useFormContext();
 
@@ -198,12 +196,12 @@ const FormTextInput = ({ name, label, noMessage, ...props }: FormTextInputProps)
             noLabel={!label}
             name={name}
             render={({ field }) => (
-                <FormItem className={cn(isPassword && 'relative')}>
+                <FormItem>
                     <FormLabel>{name}</FormLabel>
                     <FormControl>
                         <Input {...props} type={type} {...field} />
                     </FormControl>
-                    {!noMessage && <FormMessage />}
+                    <FormMessage />
                 </FormItem>
             )}
         />
