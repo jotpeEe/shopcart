@@ -16,27 +16,21 @@ type ProvidersProps = {
     children: React.ReactNode;
 };
 
-const Providers: React.FC<ProvidersProps> = ({ children, messages, locale, session }) => {
-    return (
-        <NextIntlClientProvider
-            locale={locale}
-            messages={messages}
-            timeZone="Europe/London"
+const Providers: React.FC<ProvidersProps> = ({ children, messages, locale, session }) => (
+    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Europe/London">
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+            enableSystem={false}
+            storageKey="test-theme"
         >
-            <ThemeProvider
-                attribute="class"
-                defaultTheme="dark"
-                enableSystem={false}
-                storageKey="test-theme"
-                disableTransitionOnChange
-            >
-                <SessionProvider session={session}>
-                    {children}
-                    <Toaster />
-                </SessionProvider>
-            </ThemeProvider>
-        </NextIntlClientProvider>
-    );
-};
+            <SessionProvider session={session}>
+                {children}
+                <Toaster />
+            </SessionProvider>
+        </ThemeProvider>
+    </NextIntlClientProvider>
+);
 
 export default Providers;

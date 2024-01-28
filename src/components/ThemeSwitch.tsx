@@ -26,9 +26,9 @@ const ThemeSwitch = () => {
 
     return (
         <Button
-            variant="outline"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             className="h-6 px-2 py-2.5"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            variant="outline"
         >
             {Icon[theme as 'dark' | 'light']}
         </Button>

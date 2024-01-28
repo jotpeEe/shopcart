@@ -23,8 +23,8 @@ export const Link: React.FC<LinkProps> = ({
             <a
                 className={className}
                 href={href}
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
             >
                 {children}
             </a>

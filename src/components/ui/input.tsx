@@ -13,11 +13,11 @@ const PasswordVisibilityToggle = ({
 
     return (
         <button
+            className="absolute right-0 top-0 cursor-pointer p-2.5 text-stone-500 transition hover:text-stone-800 hover:dark:text-white"
             type="button"
             onClick={() => {
                 setClicked(prevState => !prevState);
             }}
-            className="absolute right-0 top-0 cursor-pointer p-2.5 text-stone-500 transition hover:text-stone-800 hover:dark:text-white"
             {...props}
         >
             {clicked ? <EyeOff className="h-5 w-5 " /> : <Eye className="h-5 w-5" />}
@@ -47,13 +47,13 @@ const Input = React.forwardRef<
     return (
         <div className="relative">
             <input
+                ref={inputRef}
                 type={inputType}
                 className={cn(
                     'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
                     type === 'password' && 'pr-10',
                     className
                 )}
-                ref={inputRef}
                 {...props}
             />
             {isPassword && <PasswordVisibilityToggle onClick={handleClick} />}

@@ -29,7 +29,7 @@ const LocaleSwitcher = () => {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1.5" asChild>
+            <DropdownMenuTrigger asChild className="flex items-center gap-1.5">
                 <Button className="h-6 bg-stone-700 px-2.5 py-1.5 text-[10px] uppercase text-white/70 hover:bg-stone-600">
                     <span className="sc-oQLfA gzAcBg">{locale}</span>
                     {isPending ? (
@@ -40,13 +40,11 @@ const LocaleSwitcher = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="min-w-fit">
-                {locales.map(item => {
-                    return (
-                        <DropdownMenuItem key={item} onClick={() => onSelectChange(item)}>
-                            {item}
-                        </DropdownMenuItem>
-                    );
-                })}
+                {locales.map(item => (
+                    <DropdownMenuItem key={item} onClick={() => onSelectChange(item)}>
+                        {item}
+                    </DropdownMenuItem>
+                ))}
             </DropdownMenuContent>
         </DropdownMenu>
     );

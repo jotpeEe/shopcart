@@ -32,15 +32,15 @@ export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
     };
 
     return (
-        <div className="flex w-full gap-2">
+        <>
             {providers.map((provider, index) => (
                 <Button
                     key={`${index}-button-social`}
                     className="w-full"
-                    variant="outline"
-                    type="button"
-                    onClick={e => handleClick(e, provider)}
                     disabled={isLoading}
+                    onClick={e => handleClick(e, provider)}
+                    type="button"
+                    variant="outline"
                 >
                     {isLoading ? (
                         <Loader className="h-4 w-4 animate-spin" />
@@ -49,7 +49,7 @@ export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
                     )}
                 </Button>
             ))}
-        </div>
+        </>
     );
 };
 

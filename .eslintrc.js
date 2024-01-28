@@ -9,6 +9,7 @@ module.exports = {
     rules: {
         'unused-imports/no-unused-imports-ts': 'error',
         'prettier/prettier': 'error',
+        'arrow-body-style': ['warn', 'as-needed'],
         '@typescript-eslint/consistent-type-imports': [
             'error',
             {

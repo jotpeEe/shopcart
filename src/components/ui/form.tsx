@@ -39,13 +39,11 @@ const FormField = <
 >({
     noLabel,
     ...props
-}: ControllerProps<TFieldValues, TName> & { noLabel?: boolean }) => {
-    return (
-        <FormFieldContext.Provider value={{ name: props.name, noLabel }}>
-            <Controller {...props} />
-        </FormFieldContext.Provider>
-    );
-};
+}: ControllerProps<TFieldValues, TName> & { noLabel?: boolean }) => (
+    <FormFieldContext.Provider value={{ name: props.name, noLabel }}>
+        <Controller {...props} />
+    </FormFieldContext.Provider>
+);
 
 const useFormField = () => {
     const fieldContext = React.useContext(FormFieldContext);
@@ -122,12 +120,12 @@ const FormControl = React.forwardRef<
     return (
         <Slot
             ref={ref}
+            aria-invalid={!!error}
+            aria-labelledby={noLabel ? undefined : formItemId}
             id={formItemId}
             aria-describedby={
                 !error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`
             }
-            aria-invalid={!!error}
-            aria-labelledby={noLabel ? undefined : formItemId}
             {...props}
         />
     );
@@ -143,8 +141,8 @@ const FormDescription = React.forwardRef<
     return (
         <p
             ref={ref}
-            id={formDescriptionId}
             className={cn('text-sm text-muted-foreground', className)}
+            id={formDescriptionId}
             {...props}
         />
     );
@@ -167,8 +165,8 @@ const FormMessage = React.forwardRef<
     return (
         <p
             ref={ref}
-            id={formMessageId}
             className={cn('text-sm font-medium text-destructive', className)}
+            id={formMessageId}
             {...props}
         >
             {message ? message : body}
@@ -193,8 +191,8 @@ const FormTextInput = ({ name, label, ...props }: FormTextInputProps) => {
     return (
         <FormField
             control={form.control}
-            noLabel={!label}
             name={name}
+            noLabel={!label}
             render={({ field }) => (
                 <FormItem>
                     <FormLabel>{name}</FormLabel>
