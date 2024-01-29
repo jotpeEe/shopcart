@@ -4,12 +4,15 @@ import bcrypt from 'bcrypt';
 import { getTranslations } from 'next-intl/server';
 
 import { db } from '@/lib/db';
-import { getUserByEmail } from '@/lib/utils';
 import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
-export const register = async (
+import { getUserByEmail } from '../services/getUserByEmail';
+
+export type RegisterType = (
     values: RegisterSchemaType
-): Promise<{ [key: string]: string }> => {
+) => Promise<{ success: string } | { error: string }>;
+
+export const register: RegisterType = async (values: RegisterSchemaType) => {
     const t = await getTranslations('auth.messages');
     const validatedFields = RegisterSchema.safeParse(values);
 

@@ -9,13 +9,17 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 
-import { register } from '@/actions/user/register';
+import { type RegisterReturnType } from '@/actions/user/register';
 import { Button, Form, FormTextInput, toast } from '@/components/ui';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
-export const RegisterForm = () => {
+export const RegisterForm = ({
+    register,
+}: {
+    register: (values: RegisterSchemaType) => RegisterReturnType;
+}) => {
     const t = useTranslations('auth.register');
     const router = useRouter();
 

@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { type SignInResponse } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 
@@ -11,7 +11,11 @@ import { Button, Form, FormTextInput, toast } from '@/components/ui';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { LoginSchema, type LoginSchemaType } from '@/schemas';
 
-export const LoginForm = () => {
+export const LoginForm = ({
+    login,
+}: {
+    login: (values: LoginSchemaType) => Promise<SignInResponse | undefined>;
+}) => {
     const t = useTranslations('auth.login');
     const tMessages = useTranslations('auth.messages');
 
@@ -26,55 +30,48 @@ export const LoginForm = () => {
     });
 
     const onSubmit: SubmitHandler<LoginSchemaType> = async values => {
-        try {
-            await signIn('credentials', {
-                ...values,
-                redirect: false,
-            }).then(callback => {
-                if (callback?.ok) {
-                    toast({
-                        title: tMessages('response.success'),
-                        description: (
-                            <span className="text-green-600">
-                                {tMessages('server.loggedIn')}
-                            </span>
-                        ),
+        login(values).then(callback => {
+            if (callback?.ok) {
+                toast({
+                    title: tMessages('response.success'),
+                    description: (
+                        <span className="text-green-600">
+                            {tMessages('server.loggedIn')}
+                        </span>
+                    ),
+                });
+                router.push(DEFAULT_REDIRECT);
+            }
+
+            if (callback?.error) {
+                const { error } = callback;
+                let message = error.toLowerCase();
+
+                if (message.includes('password')) {
+                    message = tMessages('password.invalid');
+
+                    form.setError('password', {
+                        message,
                     });
-                    router.push(DEFAULT_REDIRECT);
                 }
 
-                if (callback?.error) {
-                    const { error } = callback;
-                    let message = error.toLowerCase();
+                if (message.includes('email')) {
+                    message = tMessages('email.notExist');
 
-                    if (message.includes('password')) {
-                        message = tMessages('password.invalid');
-
-                        form.setError('password', {
-                            message,
-                        });
-                    }
-
-                    if (message.includes('email')) {
-                        message = tMessages('email.notExist');
-
-                        form.setError('email', {
-                            message,
-                        });
-                    }
-
-                    if (!message.includes('password') && !message.includes('email')) {
-                        toast({
-                            variant: 'destructive',
-                            title: tMessages('response.error'),
-                            description: message,
-                        });
-                    }
+                    form.setError('email', {
+                        message,
+                    });
                 }
-            });
-        } catch (error) {
-            console.log(error);
-        }
+
+                if (!message.includes('password') && !message.includes('email')) {
+                    toast({
+                        variant: 'destructive',
+                        title: tMessages('response.error'),
+                        description: message,
+                    });
+                }
+            }
+        });
     };
 
     const inputs = Object.keys(form.getValues());
