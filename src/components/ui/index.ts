@@ -26,7 +26,7 @@ export {
     FormMessage,
     FormTextInput,
 } from './form';
-export { Input, type InputProps } from './input';
+export { Input } from './input';
 export { Label } from './label';
 export { Link } from './link';
 export { toast } from './use-toast';
