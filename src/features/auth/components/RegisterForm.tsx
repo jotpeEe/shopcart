@@ -14,7 +14,7 @@ import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
-import { type RegisterType } from '../actions/register';
+import { type RegisterType } from '../services/register';
 
 export const RegisterForm = ({ register }: { register: RegisterType }) => {
     const t = useTranslations('auth.register');

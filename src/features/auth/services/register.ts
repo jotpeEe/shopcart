@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import { db } from '@/lib/db';
 import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
-import { getUserByEmail } from '../services/getUserByEmail';
+import { getUserByEmail } from '../utils/getUserByEmail';
 
 export type RegisterType = (
     values: RegisterSchemaType
