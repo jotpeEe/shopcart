@@ -23,12 +23,11 @@ type RootLayoutProps = {
     };
 };
 
-export const generateStaticParams = () => {
-    return locales.map(locale => ({ locale }));
-};
+export const generateStaticParams = () => locales.map(locale => ({ locale }));
 
 const LocaleLayout = async ({ children, params: { locale } }: RootLayoutProps) => {
     unstable_setRequestLocale(locale);
+
     const messages = await getMessages();
     const session = await getServerSession(authOptions);
 

@@ -7,22 +7,22 @@ import { signIn } from 'next-auth/react';
 
 import { Github, Google } from '@/components/icons';
 import { Button } from '@/components/ui';
-import { type Provider } from '@/lib/auth';
+import { type ProvidersType } from '@/lib/constants';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 
-type AuthSocialsProps = {
-    providers: Provider[];
+type OAuthButtonGroupProps = {
+    providers: ProvidersType;
 };
 
-const SocialIcon = {
+const ProviderIcon = {
     github: <Github className="h-4 w-4" />,
     google: <Google className="h-4 w-4" />,
 } as const;
 
-export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
+export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({ providers }) => {
     const [isLoading, setIsLoading] = React.useState(false);
 
-    const handleClick = async (e: React.MouseEvent, provider: Provider[number]) => {
+    const handleClick = async (e: React.MouseEvent, provider: ProvidersType[number]) => {
         e.preventDefault();
         setIsLoading(true);
 
@@ -32,7 +32,7 @@ export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
     };
 
     return (
-        <>
+        <div className="flex w-full gap-2">
             {providers.map((provider, index) => (
                 <Button
                     key={`${index}-button-social`}
@@ -45,12 +45,12 @@ export const AuthSocials: React.FC<AuthSocialsProps> = ({ providers }) => {
                     {isLoading ? (
                         <Loader className="h-4 w-4 animate-spin" />
                     ) : (
-                        SocialIcon[provider]
+                        ProviderIcon[provider]
                     )}
                 </Button>
             ))}
-        </>
+        </div>
     );
 };
 
-export default AuthSocials;
+export default OAuthButtonGroup;

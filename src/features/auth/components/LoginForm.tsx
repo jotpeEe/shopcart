@@ -3,7 +3,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { type SignInResponse } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 
@@ -11,11 +10,9 @@ import { Button, Form, FormTextInput, toast } from '@/components/ui';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { LoginSchema, type LoginSchemaType } from '@/schemas';
 
-export const LoginForm = ({
-    login,
-}: {
-    login: (values: LoginSchemaType) => Promise<SignInResponse | undefined>;
-}) => {
+import { type LoginType } from '../services/login';
+
+export const LoginForm = ({ login }: { login: LoginType }) => {
     const t = useTranslations('auth.login');
     const tMessages = useTranslations('auth.messages');
 
