@@ -12,8 +12,8 @@ import { type SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Form, FormTextInput, toast } from '@/components/ui';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
+import { RegisterSchema, type RegisterSchemaType } from './schemas';
 import { type RegisterType } from '../services/register';
 
 export const RegisterForm = ({ register }: { register: RegisterType }) => {

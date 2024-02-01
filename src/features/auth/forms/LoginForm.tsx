@@ -8,8 +8,8 @@ import { type SubmitHandler, useForm } from 'react-hook-form';
 
 import { Button, Form, FormTextInput, toast } from '@/components/ui';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
-import { LoginSchema, type LoginSchemaType } from '@/schemas';
 
+import { LoginSchema, type LoginSchemaType } from './schemas';
 import { type LoginType } from '../services/login';
 
 export const LoginForm = ({ login }: { login: LoginType }) => {
@@ -64,7 +64,7 @@ export const LoginForm = ({ login }: { login: LoginType }) => {
                     toast({
                         variant: 'destructive',
                         title: tMessages('response.error'),
-                        description: message,
+                        description: tMessages('server.error'),
                     });
                 }
             }
@@ -86,7 +86,12 @@ export const LoginForm = ({ login }: { login: LoginType }) => {
                             disabled={isLoading}
                         />
                     ))}
-                    <Button disabled={isLoading} className="mt-2">
+                    <Button
+                        data-testid="Login-submit"
+                        disabled={isLoading}
+                        className="mt-2"
+                        type="submit"
+                    >
                         {isLoading && <Loader className="mr-2 h-4 w-4 animate-spin" />}
                         {t('button')}
                     </Button>

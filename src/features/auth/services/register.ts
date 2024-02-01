@@ -4,8 +4,8 @@ import bcrypt from 'bcrypt';
 import { getTranslations } from 'next-intl/server';
 
 import { db } from '@/lib/db';
-import { RegisterSchema, type RegisterSchemaType } from '@/schemas';
 
+import { RegisterSchema, type RegisterSchemaType } from '../forms/schemas';
 import { getUserByEmail } from '../utils/getUserByEmail';
 
 export type RegisterType = (

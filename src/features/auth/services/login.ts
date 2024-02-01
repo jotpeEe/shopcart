@@ -2,7 +2,7 @@
 
 import { type SignInResponse, signIn } from 'next-auth/react';
 
-import { type LoginSchemaType } from '@/schemas';
+import { type LoginSchemaType } from '../forms/schemas';
 
 export type LoginType = (values: LoginSchemaType) => Promise<SignInResponse | undefined>;
 

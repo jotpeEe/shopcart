@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
 import AuthFooter from './AuthFooter';
-import AuthFormSkeleton from './AuthFormSkeleton';
-import OAuthButtonSkeleton from './OAuthButtonsSkeleton';
+import AuthFormSkeleton from './skeletons/AuthFormSkeleton';
+import OAuthButtonSkeleton from './skeletons/OAuthButtonsSkeleton';
 
 const LazyOAuthButtonGroup = dynamic(() => import('./OAuthButtons'), {
     loading: () => <OAuthButtonSkeleton />,

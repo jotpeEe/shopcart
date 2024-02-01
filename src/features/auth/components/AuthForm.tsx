@@ -1,6 +1,6 @@
 import { type FormVariant } from './Auth';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import LoginForm from '../forms/LoginForm';
+import RegisterForm from '../forms/RegisterForm';
 import { login } from '../services/login';
 import { register } from '../services/register';
 

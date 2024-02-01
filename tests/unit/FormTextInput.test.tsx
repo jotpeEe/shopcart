@@ -14,9 +14,7 @@ const defaultValues = {
     [WITHOUT_PASSWORD]: '',
 };
 
-const pholder = (s: string) => {
-    return `test-${s}`;
-};
+const pholder = (s: string) => `test-${s}`;
 
 describe('FormTextInput Component', () => {
     describe('ARIA attributes', () => {
