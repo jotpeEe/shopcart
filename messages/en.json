@@ -13,7 +13,7 @@
         "login": {
             "header": "Log in",
             "description": "Enter your email below to log in",
-            "placeholders": ["email@example.com", "Your password"],
+            "placeholders": ["Email", "Password"],
             "separator": "Or log in with",
             "question": "New to ShopCart",
             "button": "Log in with email",
@@ -24,18 +24,21 @@
                 "alreadyExist": "Email already used",
                 "empty": "Enter email",
                 "invalid": "Invalid email",
+                "max": "Email must be no longer than 30 characters.",
                 "notExist": "There is no account with that address"
             },
             "password": {
                 "empty": "Enter password",
                 "invalid": "Invalid password",
+                "min": "Password must be at least 6 characters long.",
+                "max": "Password must be no longer than 30 characters.",
                 "noMatch": "Passwords did not match"
             },
             "server": {
                 "invalid": "Invalid fields",
                 "loggedIn": "You have been logged in successful",
                 "signedIn": "User created",
-                "error": "Ups, something went wrong"
+                "error": "Something went wrong, please try again later."
             },
             "response": {
                 "error": "Error",
@@ -44,7 +47,7 @@
         },
         "register": {
             "button": "Sign up with email",
-            "placeholders": ["email@example.com", "Password", "Confirm password"],
+            "placeholders": ["Email", "Password", "Confirm password"],
             "header": "Sign up",
             "description": "Enter your email below to sign up",
             "separator": "Or sign up with",

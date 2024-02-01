@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 
+import { Toaster } from '@/components/ui/toaster';
 import { type Locales } from '@/navigation';
 
 import WithIntl from './WithIntl';
@@ -20,6 +21,7 @@ const WithForm = ({ children, defaultValues, lang = 'en' }: WithFormProps) => {
     return (
         <WithIntl locale={lang}>
             <FormProvider {...form}>{children}</FormProvider>
+            <Toaster />
         </WithIntl>
     );
 };

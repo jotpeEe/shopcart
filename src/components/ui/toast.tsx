@@ -45,6 +45,7 @@ const Toast = React.forwardRef<
         VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => (
     <ToastPrimitives.Root
+        data-testid="toast"
         ref={ref}
         className={cn(toastVariants({ variant }), className)}
         {...props}

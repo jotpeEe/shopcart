@@ -18,6 +18,7 @@ const PasswordVisibilityToggle = ({
             onClick={() => {
                 setClicked(prevState => !prevState);
             }}
+            data-testid={'password-toggle-button'}
             {...props}
         >
             {clicked ? <EyeOff className="h-5 w-5 " /> : <Eye className="h-5 w-5" />}

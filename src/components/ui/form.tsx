@@ -158,6 +158,8 @@ const FormMessage = React.forwardRef<
     const t = useTranslations('auth');
     const message = body?.toString().includes('.') ? t(body) : undefined;
 
+    const alert = !message && !body;
+
     // if ((!message && !body) || !body) {
     //     return null;
     // }
@@ -166,6 +168,7 @@ const FormMessage = React.forwardRef<
         <p
             ref={ref}
             className={cn('text-sm font-medium text-destructive', className)}
+            role={!alert ? 'alert' : undefined}
             id={formMessageId}
             {...props}
         >
