@@ -1,10 +1,10 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import messages from '../../../../messages/en.json';
-import WithForm from '../../../../tests/components/WithForm';
-import { default as Form } from '../forms/LoginForm';
-import { type LoginSchemaType } from '../forms/schemas';
-import { type LoginType } from '../services/login';
+import messages from '../../../messages/en.json';
+import { default as Form } from '../../../src/features/auth/forms/LoginForm';
+import { type LoginSchemaType } from '../../../src/features/auth/forms/schemas';
+import { type LoginType } from '../../../src/features/auth/services/login';
+import WithForm from '../WithForm';
 
 const mockLoginInvalidPassword = jest.fn((values: LoginSchemaType) =>
     Promise.resolve({
@@ -41,6 +41,12 @@ const mockLogin = jest.fn((values: LoginSchemaType) =>
         url: null,
     })
 );
+
+jest.mock('next/navigation', () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+    }),
+}));
 
 const LoginForm = ({ login }: { login: LoginType }) => (
     <WithForm defaultValues={{ email: '', password: '' }}>

@@ -1,6 +1,6 @@
 import { type z } from 'zod';
 
-import { LoginSchema, RegisterSchema } from '../forms/schemas';
+import { LoginSchema, RegisterSchema } from '../../../src/features/auth/forms/schemas';
 
 type Schema = z.ZodObject<any> | z.ZodEffects<z.ZodObject<any>>;
 

@@ -1,10 +1,9 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import { default as Form } from '@/features/auth/forms/RegisterForm';
-import { type RegisterType } from '@/features/auth/services/register';
-
-import messages from '../../../../messages/en.json';
-import WithForm from '../../../../tests/unit/WithForm';
+import messages from '../../../messages/en.json';
+import { default as Form } from '../../../src/features/auth/forms/RegisterForm';
+import { type RegisterType } from '../../../src/features/auth/services/register';
+import WithForm from '../WithForm';
 
 const RegisterForm = ({ register }: { register: RegisterType }) => (
     <WithForm defaultValues={{ email: '', password: '', passwordConfirm: '' }}>

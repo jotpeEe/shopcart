@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { FormTextInput } from '@/components/ui';
 
-import WithForm from '../components/WithForm';
+import WithForm from '../WithForm';
 
 const WITH_PASSWORD = 'passwordField';
 const WITHOUT_PASSWORD = 'textField';
