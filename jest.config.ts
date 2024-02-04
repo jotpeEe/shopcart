@@ -18,10 +18,10 @@ const config: Config = {
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
     },
-    moduleDirectories: ['node_modules', '<rootDir>/tests/'],
-    roots: ['<rootDir>/tests/unit'],
+    roots: ['<rootDir>/tests/unit/'],
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
     testEnvironment: 'jsdom',
+    testMatch: ['<rootDir>/tests/unit/**/*.test.[jt]s?(x)'],
 };
 
 export default createJestConfig(config);
