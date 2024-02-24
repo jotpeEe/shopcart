@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/button';
 
 const Icon = {
     dark: <SunIcon className="h-3 w-3 " />,

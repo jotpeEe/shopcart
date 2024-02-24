@@ -6,7 +6,9 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 
-import { Button, Form, FormTextInput, toast } from '@/components/ui';
+import { Button } from '@/components/ui/button';
+import { Form, FormTextInput } from '@/components/ui/form';
+import { toast } from '@/components/ui/use-toast';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 
 import { LoginSchema, type LoginSchemaType } from './schemas';

@@ -5,13 +5,13 @@ import { useTransition } from 'react';
 import { Globe, Loader } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
+import { Button } from '@/components/ui/button';
 import {
-    Button,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from '@/components/ui';
+} from '@/components/ui/dropdown-menu';
 import { locales, usePathname, useRouter } from '@/navigation';
 
 const LocaleSwitcher = () => {

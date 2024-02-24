@@ -5,10 +5,10 @@ import React from 'react';
 import { Loader } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
-import { Github, Google } from '@/components/icons';
-import { Button } from '@/components/ui';
-import { type ProvidersType } from '@/lib/constants';
-import { DEFAULT_REDIRECT } from '@/lib/constants';
+import Github from '@/components/icons/Github';
+import Google from '@/components/icons/Google';
+import { Button } from '@/components/ui/button';
+import { DEFAULT_REDIRECT, type ProvidersType } from '@/lib/constants';
 
 type OAuthButtonGroupProps = {
     providers: ProvidersType;
