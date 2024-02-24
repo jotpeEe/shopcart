@@ -33,15 +33,19 @@ const LocaleSwitcher = () => {
                 <Button className="h-6 bg-stone-700 px-2.5 py-1.5 text-xs uppercase text-white/70 hover:bg-stone-600">
                     <span className="sc-oQLfA gzAcBg">{locale}</span>
                     {isPending ? (
-                        <Loader className="h-4 w-4 animate-spin" />
+                        <Loader className="size-4 animate-spin" />
                     ) : (
-                        <Globe className="h-4 w-4 text-stone-500 dark:text-stone-400" />
+                        <Globe className="size-4 text-stone-500 dark:text-stone-400" />
                     )}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="min-w-fit">
                 {locales.map(item => (
-                    <DropdownMenuItem key={item} onClick={() => onSelectChange(item)}>
+                    <DropdownMenuItem
+                        key={item}
+                        onClick={() => onSelectChange(item)}
+                        data-testid={`menu-${item}`}
+                    >
                         {item}
                     </DropdownMenuItem>
                 ))}

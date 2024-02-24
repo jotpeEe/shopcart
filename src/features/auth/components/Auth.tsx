@@ -26,9 +26,9 @@ type AuthFormSwitch = {
 const AuthFormSwitch = ({ callToAction, question, onClick }: AuthFormSwitch) => (
     <div className="mt-6 flex justify-center gap-2 px-2 text-sm ">
         <div className="text-stone-800 dark:text-gray-500">{question}</div>
-        <div className="cursor-pointer underline" onClick={onClick}>
+        <button className="cursor-pointer underline" onClick={onClick}>
             {callToAction}
-        </div>
+        </button>
     </div>
 );
 

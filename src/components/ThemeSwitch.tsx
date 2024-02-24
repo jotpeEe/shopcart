@@ -29,6 +29,8 @@ const ThemeSwitch = () => {
             className="h-6 px-2 py-2.5"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             variant="outline"
+            aria-label="Toggle Theme"
+            data-testid="ThemeSwitch"
         >
             {Icon[theme as 'dark' | 'light']}
         </Button>
