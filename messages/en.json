@@ -11,13 +11,12 @@
             }
         },
         "login": {
-            "header": "Log in",
-            "description": "Enter your email below to log in",
+            "header": "Sign in",
             "placeholders": ["Email", "Password"],
             "separator": "Or log in with",
             "question": "New to ShopCart",
             "button": "Log in with email",
-            "callToAction": "Sign up"
+            "callToAction": "Create new account"
         },
         "messages": {
             "email": {
@@ -25,7 +24,7 @@
                 "empty": "Enter email",
                 "invalid": "Invalid email",
                 "max": "Email must be no longer than 30 characters.",
-                "notExist": "There is no account with that address"
+                "notExist": "There is no account with that email address. Did you mean to sign up?"
             },
             "password": {
                 "empty": "Enter password",
@@ -35,7 +34,6 @@
                 "noMatch": "Passwords did not match"
             },
             "server": {
-                "invalid": "Invalid fields",
                 "loggedIn": "You have been logged in successful",
                 "signedIn": "User created",
                 "error": "Something went wrong, please try again later."
@@ -48,11 +46,11 @@
         "register": {
             "button": "Sign up with email",
             "placeholders": ["Email", "Password", "Confirm password"],
-            "header": "Sign up",
+            "header": "Create new account",
             "description": "Enter your email below to sign up",
             "separator": "Or sign up with",
-            "question": "Already have an account?",
-            "callToAction": "Log in",
+            "question": "Already have an account",
+            "callToAction": "Sign in",
             "error": "Error",
             "success": "Success"
         }

@@ -1,21 +1,27 @@
-/** @type {import('next').NextConfig} */
+await import('./src/env.js');
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-    enabled: process.env.ANALYZE === 'true',
-});
-const withNextIntl = require('next-intl/plugin')();
+/** @type {import('next').NextConfig} */
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import nextIntl from 'next-intl/plugin';
 
 const nextConfig = {
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/home',
-                permanent: true,
-            },
-        ];
-    },
-    output: 'standalone',
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ];
+  },
+  output: 'standalone',
 };
 
-module.exports = withBundleAnalyzer(withNextIntl(nextConfig));
+const withNextIntl = nextIntl('./src/i18n.ts');
+
+const config =
+  process.env.ANALYZE === 'true'
+    ? withBundleAnalyzer(withNextIntl(nextConfig))
+    : withNextIntl(nextConfig);
+
+export default config;

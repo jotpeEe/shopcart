@@ -18,7 +18,7 @@ const HcaptchaNotice = () => {
     const t = useTranslations('auth.footer');
 
     return (
-        <span className="col-span-8 text-xs tracking-wider text-gray-500">
+        <span className="col-span-8 text-xs tracking-wider text-muted-foreground">
             {t('hcaptcha.pre')}{' '}
             <Link href="https://hcaptcha.com/privacy" external className="underline">
                 {t('notice')}
@@ -64,7 +64,7 @@ const PrivacyAndSettingsPanel = () => {
 };
 
 const AuthFooter = () => (
-    <footer className="absolute bottom-0 left-0 mx-[72px] mb-0 mt-0 grid grid-cols-8 gap-3 uppercase lg:mx-12 lg:mb-6 lg:mt-4">
+    <footer className="absolute bottom-0 left-0 mx-[72px] grid grid-cols-8 gap-3 uppercase lg:mx-12 lg:mb-6 lg:mt-4">
         <PrivacyAndSettingsPanel />
         <HcaptchaNotice />
     </footer>

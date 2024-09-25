@@ -1,0 +1,412 @@
+{
+    "Home": {
+        "title": "Sign in",
+        "description": "Enter your email below to sign in"
+    },
+    "AppearanceForm": {
+        "toast": "You submitted the following values:",
+        "langLabel": "Language",
+        "selectLang": "Select language",
+        "searchLangPlaceholder": "Search language...",
+        "searchLangCommand": "No language found.",
+        "langDescription": "This is the language that will be used in the dashboard.",
+        "themeLabel": "Theme",
+        "themeDescription": "Select the theme for the dashboard.",
+        "themeLight": "Light",
+        "themeDark": "Dark",
+        "submitButton": "Update preferences"
+    },
+    "AppearancePage": {
+        "header": "Appearance",
+        "description": "Customize the appearance of the app. Automatically switch between day and night themes."
+    },
+    "auth": {
+        "signup": {
+            "header": "Sign up",
+            "description": "Enter your email below to sign up",
+            "placeholders": ["email@example.com", "Password", "Confirm password"],
+            "separator": "Or sign up with",
+            "question": "Already have an account?",
+            "button": "Sign up with email",
+            "callToAction": "Log in",
+            "error": "Error",
+            "success": "Success"
+        },
+        "login": {
+            "header": "Log in",
+            "description": "Enter your email below to log in",
+            "placeholders": ["email@example.com", "Your password"],
+            "separator": "Or log in with",
+            "question": "New to ShopCart",
+            "button": "Log in with email",
+            "callToAction": "Sign up"
+        },
+        "messages": {
+            "email": {
+                "empty": "Enter email",
+                "notExist": "There is no account with that address.",
+                "alreadyExist": "Email already used",
+                "invalid": "Invalid email"
+            },
+            "password": {
+                "empty": "Enter password",
+                "invalid": "Invalid password",
+                "noMatch": "Passwords did not match"
+            },
+            "server": {
+                "title": "Server error:",
+                "invalid": "Invalid fields",
+                "loggedIn": "You have been logged in successful",
+                "signedIn": "User created"
+            }
+        },
+        "footer": {
+            "notice": "Privacy notice",
+            "terms": "Terms of use",
+            "cookies": "Cookie preferences",
+            "hcaptcha": {
+                "pre": "This site is protected by hCaptcha and its",
+                "and": "and",
+                "post": "apply"
+            }
+        }
+    },
+    "Layouts": {
+        "TermsAndConditions": {
+            "header": "Terms and Conditions",
+            "description": "Welcome to ShopCart Terms and Conditions page, where we outline the rules and guidelines that govern your use of our website and services. By shopping with us, you agree to abide by these terms, ensuring a smooth and secure shopping experience."
+        }
+    },
+    "Modal": {
+        "Measure": {
+            "button": "Size guide",
+            "dialog": {
+                "title": "Tops, blouses etc.",
+                "dialogTitle": "How to measure",
+                "select": "Select size range",
+                "categories": {
+                    "Regular": "Regular",
+                    "Maternity": "Maternity",
+                    "Petite": "Petite"
+                },
+                "contentCategories": {
+                    "UK": "UK",
+                    "EUR": "EUR",
+                    "Chest cm": "Chest cm",
+                    "Waist cm": "Waist cm",
+                    "Arm length cm": "Arm length cm",
+                    "Low hip cm": "Low hip cm",
+                    "Low hip curvy cm": "Low hip curvy cm"
+                }
+            }
+        },
+        "OutOfStock": {
+            "button": "Size out of stock?",
+            "GuestView": {
+                "dialog": {
+                    "title": "Notify me"
+                },
+                "dialogAction": {
+                    "title": "DON'T MISS OUT!",
+                    "description": "Get notified if this product comes back in stock — it's easy!"
+                },
+                "button": "Sign in/join"
+            },
+            "UserView": {
+                "dialog": {
+                    "title": "Notify me"
+                },
+                "dialogAction": {
+                    "title": "KEEP ME POSTED",
+                    "description": "If your product comes back in stock, we'll email you.",
+                    "notify": "WE WILL NOTIFY YOU AT:"
+                },
+                "select": "Select size",
+                "button": "Notify me"
+            }
+        },
+        "ProductDeliveryAndPayments": {
+            "title": "Delivery and Payments",
+            "paragraph": "Free standard delivery and Click & Collect on orders over £30 for Members. You can also use our Click & Collect service (free for all members / non- members free over £30). We accept card payments via MasterCard and Visa. You can also pay by Klarna, PayPal, Apple Pay or use your ShopCart giftcard. Find out more on our customer service pages.",
+            "button": "Close"
+        },
+        "Reviews": {
+            "title": "Reviews",
+            "subtitle": "WHAT OTHERS CUSTOMERS THINK",
+            "customersPre": "Based on",
+            "customersPost": "customers reviews",
+            "terms": "Terms and Conditions customer rate & review",
+            "sliders": {
+                "1": {
+                    "label": "True to size",
+                    "values": ["Small", "Spot on", "Large"]
+                },
+                "2": {
+                    "label": "Length",
+                    "values": ["Short", "Spot on", "Long"]
+                }
+            },
+            "buttonWithIcons": {
+                "left": "Filter",
+                "right": "Sort by"
+            },
+            "button": "Close",
+            "sort": {
+                "values": ["Most Relevant", "Newest", "Highest rated", "Lowest rated"]
+            }
+        }
+    },
+    "Navbar": {
+        "user": {
+            "profile": "Profile",
+            "customers": "Customers",
+            "settings": "Settings",
+            "products": "Products",
+            "logout": "Log out"
+        },
+        "admin": {
+            "profile": "Profile",
+            "customers": "Customers",
+            "settings": "Settings",
+            "products": "Products",
+            "logout": "Log out"
+        }
+    },
+    "Product": {
+        "form": {
+            "label": "Sizes",
+            "alert": "Few pieces left",
+            "button": "Add"
+        },
+        "findStore": "Find in store",
+        "alert": "Free standard delivery for Members when spending £30 or more. Free Click and Collect. Free and flexible returns for members",
+        "reviews": "opinii"
+    },
+    "TermsAndConditions": {
+        "header": "ShopCart Terms and Conditions",
+        "descriptions": [
+            "Welcome to our terms and conditions! We're delighted you've made it here. While this document may not be the most thrilling read, it's essential to establish what you can expect from us and what we expect from you. When we refer to 'us,' 'we,' or 'ShopCart' we mean the entity behind your shop.",
+            "These terms and conditions apply when you place an order with us through our online store, which can be accessed via our website shopcart.mklos.dev or our dedicated mobile application (referred to as the 'Online Store').",
+            "By placing your order, you agree to be bound by these terms and conditions, or the 'Terms' as we'll call them. Therefore, please make sure you've read and understood them before making a purchase.",
+            "To place an order, you must have the legal capacity to enter into agreements, which means you must be at least 18 years old and not under guardianship. Orders paid with gift cards can be made by individuals who are at least 16 years old. Additionally, you need a valid email address and a delivery address within the UK, Jersey, and Guernsey (excluding all other Channel Islands, BFPO, and mail forwarding companies).",
+            "Orders for corporate, commercial, or self-employed activities are not accepted. We do not provide commercial VAT invoices for corporate use.",
+            "We reserve the right to modify these Terms. However, the Terms you agree to at the time of your purchase will always apply to that particular transaction. Any changes will be incorporated in the latest version of the Terms published on our Online Store. Changes will take effect when you accept the Terms, typically when making a new purchase. We may update our Terms periodically, so make sure to revisit this page to stay informed."
+        ],
+        "rules": [
+            {
+                "title": "Prices and Delivery Charges",
+                "descriptions": [
+                    "The prices displayed on our Online Store include the applicable value-added tax, where relevant, but do not include delivery charges. The total cost of your purchase, including delivery charges, will be displayed during the checkout process.",
+                    "Please note that prices on our Online Store may vary from prices in our physical stores.",
+                    "The delivery cost is presented in the checkout view, where you can select from available delivery options. These options depend on your delivery address and the items you've ordered. Our standard delivery fee is £3.99. If your order requires multiple deliveries, you will only be charged once for the entire order.",
+                    "We may periodically offer promotions, discount codes, gifts, and other special offers. Such offers are valid for the specified duration and under the terms associated with them. Offers cannot be combined with other discounts unless explicitly stated in the Online Store. To use an offer, you should enter the discount code before completing your purchase."
+                ]
+            },
+            {
+                "title": "Placing an Order",
+                "descriptions": [
+                    "To place an order, you can select the items you wish to purchase and add them to your shopping cart using the 'Add to Cart' button. In the shopping cart view, you can review your order and remove any items you've changed your mind about before proceeding to checkout. Clicking the 'Complete Purchase' button finalizes your order and constitutes a binding offer to purchase the items in your shopping cart. Depending on your chosen payment method, additional steps may be required to complete your payment.",
+                    "Upon receiving your order, we will send an automatic email confirmation indicating that your order has been placed. Please note that a placed order is an offer and does not constitute a binding contract until we approve your order. When we approve your order, you will receive a shipping confirmation email with all relevant information about your order and its delivery, finalizing our contract.",
+                    "We reserve the right to decline orders for operational, legal, or commercial reasons. For example, this could happen if the item you ordered is out of stock due to a defect or if we suspect the items are being ordered for commercial resale. If we are unable to approve your order, we will inform you as soon as possible after sending the automatic email confirmation, but before approving your order and sending the shipping confirmation.",
+                    "If we've already received payment for an unapproved order, we will attempt to refund the applicable amount through the same payment method you used. If alternative arrangements are needed, we will contact you to arrange the refund."
+                ]
+            },
+            {
+                "title": "Payment Methods",
+                "descriptions": [
+                    "Credit or Debit Card: You can enter your payment details when placing your order using a valid VISA, AMEX, or Mastercard. The applicable amount will be reserved on your card immediately but will not be debited until the goods are dispatched. We reserve the right to validate the credit or debit card's validity, credit status concerning the order value, and the correctness of the purchaser's address. Orders may be refused based on the results of these checks.",
+                    "PayPal: When paying with PayPal, we reserve the right to validate the PayPal account's validity, whether there are sufficient funds to cover the purchase amount, and validate the billing address details of the purchaser. The applicable amount will be reserved in your PayPal account immediately but will not be debited until the goods are dispatched. ShopCart reserves the right to decline any purchase.",
+                    "ShopCart Gift Cards and Merchandise Cards: You can use ShopCart gift cards and merchandise cards to pay for all or part of your online order. Further details about combining these with other payment methods can be found on our website.",
+                    "Payment After Delivery: Our Pay Later services are provided by Klarna. After your order has been dispatched from our warehouse, Klarna will provide information on when and how to complete your payment. For payment-related queries, please refer to Klarna's website or contact Klarna customer service.",
+                    "Other: If you are an ShopCart member, you can access your receipt via the 'My Account' section. Non-ShopCart members can contact our customer service team to obtain their receipt."
+                ]
+            },
+            {
+                "title": "Delivery",
+                "descriptions": [
+                    "When will your order arrive? In the checkout view, before finalizing your order, you will be informed of the delivery options available for your specified delivery address, along with the estimated delivery time following our order approval and the associated cost for each option.",
+                    "Even though we do our best to deliver within the specified time frame, unexpected events may occasionally cause delays. If your order doesn't arrive by the estimated delivery time, please contact Customer Service, and they will assist you.",
+                    "We aim to deliver your order to an address in the UK, Jersey, or Guernsey in line with your chosen delivery option. Unfortunately, we cannot deliver to other Channel Islands, BFPO, and mail forwarding companies. Some cosmetic products cannot be delivered to Northern Ireland, the Isle of Wight, the Isle of Man, the Shetland Islands, the Orkney Islands, the Scilly Islands, and the Scottish Isles."
+                ]
+            },
+            {
+                "title": "Returns",
+                "descriptions": [
+                    "Changed your mind? No problem. According to applicable consumer protection laws, you have the right to return your entire purchase or part of it for any reason within 14 days from the day you receive your order. In addition to this, we offer an extended 14-day return period, providing you with a total of 28 days to return items for any reason.",
+                    "We provide several ways to return items, including through our returns portal, email, or letter to our customer service. Please make sure to return the correct and complete items, as we cannot process returns for items purchased in physical stores. Note that items from our external brands may have separate return instructions.",
+                    "Returns will be subject to a £1.99 return fee, and the refund will be made to the same payment method you used for your purchase.",
+                    "The right of withdrawal and return does not apply to products sealed for health or hygiene reasons if the seal has been removed, such as certain underwear, swimwear, piercing jewelry, face masks, beauty products, and cosmetics."
+                ]
+            },
+            {
+                "title": "Defects",
+                "descriptions": [
+                    "If you encounter any issues with the items you ordered, please inform us. According to applicable consumer protection laws, our products must be free from defects, conform to the contract of sale, be fit for their intended purpose, and perform as expected.",
+                    "We will offer to repair, replace, reduce the price, or refund items found to be defective, depending on the item, the nature of the defect, and your preference.",
+                    "If you receive a defective item within 28 days of receipt, you can follow the return instructions in section 6 (Returns) and indicate that the item is defective."
+                ]
+            },
+            {
+                "title": "Our Liability",
+                "descriptions": [
+                    "We make every reasonable effort to ensure that information in our Online Store is accurate, complete, and up to date. However, despite our best efforts, information may occasionally be inaccurate, incomplete, or out of date. We are not bound by any such information if you realized or should have realized that the information was incorrect, incomplete, or out of date.",
+                    "We aim to accurately display and describe our product attributes on the Online Store, such as measurements, composition, and colors. However, the color you see may vary depending on your device. Please note that our measurements are approximate and serve as estimates of the model or fit of the specific item. These measurements do not guarantee the actual measurements of the item you receive, as they may vary depending on the production materials.",
+                    "Under unforeseen circumstances beyond our control, such as government actions, legal changes, labor disputes, war, natural disasters, or other exceptional events, we may not be able to fulfill our contract with you. In such cases, we are not liable for any damages. Please note that you, as a consumer, always retain the right to cancel your purchase under such circumstances.",
+                    "Our maximum liability to you for any loss or damage arising in connection with your order via the Online Store shall be limited to the total price of your order and any proven losses that you suffer as a result of our failure to comply (whether arising in contract, tort, including negligence, breach of statutory duty, or otherwise), which are a reasonably foreseeable consequence of such breach.",
+                    "We are not responsible for indirect losses, which are side effects of the main loss or damage, such as loss of profits or loss of opportunity, or for failure to deliver goods or meet any of our other obligations under these Terms when such failure results from events beyond our reasonable control. This includes but is not limited to fire, flood, storm, riot, civil disturbance, war, nuclear accidents, and terrorist activities.",
+                    "These Terms do not exclude or limit our liability with regard to matters for which it would be unlawful for us to limit or exclude our liability. This includes liability for death or personal injury caused by our negligence or the negligence of our employees, agents, or subcontractors; for fraud or fraudulent misrepresentation; for breach of your legal rights in relation to the goods; and for defective goods under applicable consumer protection legislation."
+                ]
+            },
+            {
+                "title": "Colors and Measurements",
+                "descriptions": [
+                    "If you have any concerns or complaints regarding our products or services, please contact our Customer Service. We adhere to applicable local dispute resolution mechanisms for the settlement of potential customer complaints.",
+                    "Customers within the UK may file complaints with Consumer Arbitration. We are a subscriber to the services of Consumer Arbitration and are willing to engage in its ADR procedure. For more information or to submit your complaint to Consumer Arbitration, please visit Consumer Arbitration's website."
+                ]
+            },
+            {
+                "title": "Severance",
+                "descriptions": [
+                    "If any clause in these Terms is found to be unenforceable for any reason, this will not affect the enforceability of any other clause in these Terms."
+                ]
+            }
+        ],
+        "payments": {
+            "header": "Terms and Conditions for Stripe Payments",
+            "description": "These 'Terms and Conditions' ('Agreement') govern the use of Stripe payment services on ShopCart website ('Website') for purchasing clothing and related products. By using our Stripe payment services, you agree to be bound by these terms:",
+            "rules": [
+                {
+                    "title": "Payment Processing",
+                    "description": [
+                        "We use Stripe as our payment processor, and all payments made through our Website are subject to Stripe's terms of service.",
+                        "You must provide accurate and complete payment information when making a purchase on our Website. We are not responsible for any errors or delays caused by inaccurate payment information."
+                    ]
+                },
+                {
+                    "title": "Payment Security",
+                    "description": [
+                        "We take payment security seriously. All payment information is transmitted and stored securely, and we comply with industry standards to protect your financial information.",
+                        "We do not store your credit card details on our servers. All payment information is securely processed by Stripe."
+                    ]
+                },
+                {
+                    "title": "Payment Authorization",
+                    "description": [
+                        "By using Stripe for payments on our Website, you authorize us to charge the total order amount, including any applicable taxes and shipping fees."
+                    ]
+                },
+                {
+                    "title": "Payment Disputes and Refunds",
+                    "description": [
+                        "If you believe there is a discrepancy or issue with your payment, please contact our customer support team as soon as possible for assistance.",
+                        "We reserve the right to issue refunds at our discretion, in accordance with our return and refund policies."
+                    ]
+                },
+                {
+                    "title": "Currency and Pricing",
+                    "description": [
+                        "All transactions are processed in the currency displayed on our Website at the time of purchase.",
+                        "Prices, discounts, and offers are subject to change at our discretion."
+                    ]
+                },
+                {
+                    "title": "Compliance with Laws",
+                    "description": [
+                        "You agree to use Stripe payments on our Website in compliance with all applicable laws and regulations."
+                    ]
+                },
+                {
+                    "title": "Limitation of Liability",
+                    "description": [
+                        "We are not responsible for any issues, errors, or disputes related to Stripe payments. Stripe's terms and conditions will apply in such cases.",
+                        "In no event shall ShopCart be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use of Stripe payment services."
+                    ]
+                },
+                {
+                    "title": "Modification of Terms",
+                    "description": [
+                        "We reserve the right to modify these Terms and Conditions at any time. Any changes will be effective upon posting on our Website."
+                    ]
+                },
+                {
+                    "title": "Contact Information",
+                    "description": [
+                        "If you have any questions or concerns regarding Stripe payments or these Terms and Conditions, please contact our customer support team."
+                    ]
+                }
+            ]
+        },
+        "reviews": {
+            "header": "Terms and Conditions customer rate & review",
+            "paragraphs": [
+                "By entering a customer review through the Customer Rate and Review service for any of our products You grant ShopCart hereinafter referred to as “ShopCart” a non-exclusive, royalty free worldwide license to use any of your written reviews in relation to its marketing and/or in its advertising, including without limitation, in the online store, in newsletters, catalogs, email and other customer communications, store materials and other marketing purposes.",
+                "Further You grant ShopCart the right to review the reviews before they are published. ShopCart will only publish comments that contain relevant information about a product, that helps other customers to make informed decisions and to get a clearer understanding of the product. To this end ShopCart will not publish generally inappropriate comments, indecent or inappropriate language or personally identifiable information. ShopCart communicates in the local language(s) for each market. ShopCart reserve the right to remove any customer review at any time, for instance if the comment is found to be in breach of the above, product has sold out or if the comment is in other ways outdated.",
+                "You hereby release and discharge ShopCart from all and any obligation to pay you for any use of your texts and any of the copy rights contained therein in connection with the uses described above; and You hereby release, discharge and agree to hold ShopCart and any person acting on ShopCart's behalf harmless from all claims, demands, and liabilities whatsoever in connection with use of the customer reviews as described above. ShopCart reserve the right to amend these Terms from time to time without prior notice, however the Terms that was available to you on hm.com at the time of submitting the review will apply for that review. Please make sure to save a copy of the Terms, as we will not store or be able to provide you with old versions.",
+                "Please note that reviews can only be submitted by customers who bought the item and submitted their review via either their My Account page, their order history page, or by receipt of a ”Rate and Review”-email following their purchase. All reviews that are not in breach of our Terms & Conditions are published. Review scores are weighted per median value over the full data of published reviews for the article in the chosen market."
+            ]
+        }
+    },
+    "UserForm": {
+        "toast": "You submitted the following values:",
+        "nameLabel": "Name",
+        "nameDescription": "This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.",
+        "emailDescription": "You can manage verified email adresses in your",
+        "emailDescriptionLink": "email settings",
+        "bioDescriptionPre": "You can",
+        "bioDescriptionLink": "@mention",
+        "bioDescriptionPost": "other users and organizations to link to them.",
+        "locationLabel": "Location",
+        "locationDescription": "Location can be usefull when making calendar events.",
+        "urlsDescription": "Add links to your website, blog, or social media profiles.",
+        "addUrl": "Add URL",
+        "submit": "Update profile",
+        "urlInvalidError": "Please enter a valid URL. (ex. https://example.com)"
+    },
+    "UserNav": {
+        "linkTitleProfile": "Profile",
+        "linkTitleCustomers": "Customers",
+        "linkTitleSettings": "Settings",
+        "linkTitleProducts": "Products",
+        "logout": "Log out"
+    },
+    "UserPage": {
+        "header": "User",
+        "description": "This is how others will see you on this site."
+    },
+    "UserSettings": {
+        "header": "Settings",
+        "description": "Manage your account settings and set e-mail preferences."
+    },
+    "UserSidebarNav": {
+        "user": "User",
+        "appearance": "Appearance"
+    },
+    "useSignup": {
+        "emailEmptyError": "Enter email",
+        "emailInvalidError": "Invalid email",
+        "emailAlreadyExistsError": "Email already used",
+        "passwordEmptyError": "Enter password",
+        "passwordInvalidError": "Invalid password",
+        "passwordNoMatchError": "The passwords did not match"
+    },
+    "Utils": {
+        "useSteps": {
+            "chest": {
+                "title": "Chest",
+                "description": "Measure your chest over the fullest part of your bust while wearing a bra that fits."
+            },
+            "waist": {
+                "title": "Waist",
+                "description": "Measure your waist at the narrowest point. (MATERNITY: Do not measure the waist)"
+            },
+            "ArmLength": {
+                "title": "ArmLength",
+                "description": "Measure from shoulder to wrist."
+            },
+            "LowHip": {
+                "title": "Low hip",
+                "description": "Measure your low hip around the fullest part of your hip."
+            }
+        }
+    }
+}

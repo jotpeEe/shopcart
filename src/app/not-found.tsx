@@ -7,11 +7,11 @@ import Error from 'next/error';
 // therefore doesn't have a locale associated with it.
 
 const NotFound = () => (
-    <html lang="en">
-        <body>
-            <Error statusCode={404} />
-        </body>
-    </html>
+  <html lang="en">
+    <body>
+      <Error statusCode={404} />
+    </body>
+  </html>
 );
 
 export default NotFound;

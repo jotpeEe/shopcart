@@ -1,0 +1,410 @@
+{
+    "Home": {
+        "title": "Zaloguj się",
+        "description": "Wpisz email poniżej, aby się zalogować"
+    },
+    "AppearanceForm": {
+        "toast": "Pdane wartości zostały zauktualizowane: ",
+        "langLabel": "Język",
+        "selectLang": "Wybierz Język",
+        "searchLangPlaceholder": "Znajdź język...",
+        "searchLangCommand": "Nie znaleziono żadnego języka.",
+        "langDescription": "Wybrany język będzie obowiązywał w całej aplikacji.",
+        "themeLabel": "Motyw koloru",
+        "themeDescription": "Wybierz motyw, który będzie obowiązywał w całej aplikacji.",
+        "themeLight": "Jasny",
+        "themeDark": "Ciemny",
+        "submitButton": "Zauktualizuj preferencje"
+    },
+    "AppearancePage": {
+        "header": "Wygląd",
+        "description": "Dostosuj wygląd aplikacji. Automatycznie przełączaj motywy dzienne i nocne."
+    },
+    "auth": {
+        "signup": {
+            "header": "Załóż konto",
+            "description": "Podaj e-mail oraz hasło, aby założyć konto",
+            "placeholders": ["e-mail@przyklad.pl", "Hasło", "Potwierdź hasło"],
+            "separator": "Lub zaloguj się za pomocą",
+            "question": "Masz już konto?",
+            "button": "Załóż konto",
+            "callToAction": "Zaloguj się",
+            "error": "Błąd",
+            "success": "Sukces"
+        },
+        "login": {
+            "header": "Zaloguj się",
+            "description": "Podaj e-mail oraz hasło, aby się zalogować",
+            "placeholders": ["email@example.com", "Twoje hasło"],
+            "separator": "Lub zaloguj się za pomocą",
+            "question": "Pierwszy raz w ShopCart?",
+            "button": "Zaloguj się",
+            "callToAction": "Załóż konto"
+        },
+        "messages": {
+            "email": {
+                "empty": "Wpisz adres e-mail",
+                "notExist": "Nie ma konta o tym adresie.",
+                "alreadyExist": "E-mail już używany",
+                "invalid": "Nieprawidłowy adres e-mail"
+            },
+            "password": {
+                "empty": "Wprowadź hasło",
+                "invalid": "Nieprawidłowe hasło",
+                "noMatch": "Hasła nie pasują"
+            },
+            "server": {
+                "title": "Błąd serwera:",
+                "invalid": "Nieprawidłowy format użytkownika lub hasła",
+                "loggedIn": "Logowanie do konta pomyślne",
+                "signedIn": "Konto założone"
+            }
+        },
+        "footer": {
+            "notice": "Polityka prywatności",
+            "terms": "Zasady użytkowania",
+            "cookies": "Ustawienia cookies",
+            "hcaptcha": {
+                "pre": "Strona jest chroniona przez hcaptcha i jej",
+                "and": "oraz",
+                "post": "obowiązują"
+            }
+        }
+    },
+    "Layouts": {
+        "TermsAndConditions": {
+            "header": "Zasady użytkowania",
+            "description": "Witamy w ShopCart! Nasza strona „Warunki” zawiera zasady i wytyczne regulujące korzystanie z naszej witryny i usług. Robiąc zakupy u nas, zgadzasz się przestrzegać niniejszego Regulaminu, zapewniając sprawne i bezpieczne zakupy."
+        }
+    },
+    "Modal": {
+        "Measure": {
+            "button": "Tabela rozmiarów",
+            "dialog": {
+                "title": "Topy, bluzki itp.",
+                "dialogTitle": "Jak zmierzyć",
+                "select": "Wybierz zakres rozmiarów",
+                "categories": {
+                    "Regular": "Regularny",
+                    "Maternity": "Ciążowy",
+                    "Petite": "Mały"
+                },
+                "contentCategories": {
+                    "UK": "UK",
+                    "EUR": "EUR",
+                    "Chest cm": "Klatka piersiowa cm",
+                    "Waist cm": "Talia cm",
+                    "Arm length cm": "Długość ramienia cm",
+                    "Low hip cm": "Niższe biodro cm",
+                    "Low hip curvy cm": "Niższe biodro zaokrąglone cm"
+                }
+            }
+        },
+        "OutOfStock": {
+            "button": "Brak rozmiaru?",
+            "GuestView": {
+                "dialog": {
+                    "title": "Powiadom mnie"
+                },
+                "dialogAction": {
+                    "title": "Nie przegap!",
+                    "description": "Otrzymaj powiadomienie gdy produkt będzie ponownie dostępny"
+                },
+                "button": "Zaloguj się/dołącz"
+            },
+            "UserView": {
+                "dialog": {
+                    "title": "Powiadom mnie"
+                },
+                "dialogAction": {
+                    "title": "BĄDŹ NA BIEŻĄCO",
+                    "description": "Jeżeli produkt będzie ponownie dostępny, wyślemy do Ciebie wiadomość.",
+                    "notify": "POWIADOMIMY CIĘ NA ADRESS:"
+                },
+                "select": "Wybierz rozmiar",
+                "button": "Powiadom mnie"
+            }
+        },
+        "Reviews": {
+            "title": "Opinie",
+            "subtitle": "Co myślą inni kupujący",
+            "customersPre": "Opinia oparta na",
+            "customersPost": "ocenach użytkowników",
+            "terms": "Zasady użytkowania, ocena i opinia klienta",
+            "sliders": {
+                "1": {
+                    "label": "Celność rozmiaru",
+                    "values": ["Małe", "Dopasowane", "Duże"]
+                },
+                "2": {
+                    "label": "Długość",
+                    "values": ["Krótkie", "Dopasowane", "Długie"]
+                }
+            },
+            "buttonWithIcons": {
+                "left": "Filtr",
+                "right": "Sortuj przez"
+            },
+            "button": "Zamknij",
+            "sort": {
+                "values": [
+                    "Naistotniejsze",
+                    "Najnowsze",
+                    "Od najwyżej oceny",
+                    "Od najniższej oceny"
+                ]
+            }
+        },
+        "ProductDeliveryAndPayments": {
+            "title": "Dostawa i płatności",
+            "paragraph": "Bezpłatna standardowa dostawa oraz opcja Click & Collect przy zamówieniach powyżej 30 GBP dla członków. Możesz także skorzystać z naszej usługi Click & Collect (bezpłatna dla wszystkich członków/nieczłonków, bezpłatna powyżej 30 GBP). Akceptujemy płatności kartami MasterCard i Visa. Możesz także zapłacić za pomocą Klarna, PayPal, Apple Pay lub użyć karty podarunkowej ShopCart. Więcej informacji znajdziesz na naszych stronach obsługi klienta.",
+            "button": "Close"
+        }
+    },
+    "Product": {
+        "form": {
+            "label": "Wymiary",
+            "alert": "Ostatnie produkty",
+            "button": "Dodaj"
+        },
+        "findStore": "Znajdz w sklepie",
+        "alert": "Bezpłatna standardowa dostawa dla członków, którzy wydadzą 30 GBP lub więcej. Bezpłatne kliknij i odbierz. Bezpłatne i elastyczne zwroty dla członków.",
+        "reviews": "opinii"
+    },
+    "TermsAndConditions": {
+        "header": "Regulamin sklepu ShopCart",
+        "descriptions": [
+            "Witamy w naszym regulaminie! Cieszymy się, że tu jesteś. Choć ten dokument może nie być najbardziej ekscytującą lekturą, to jednak jest niezbędny, aby określić, czego możesz od nas oczekiwać i czego oczekujemy od ciebie.",
+            "Kiedy mówimy o 'nas', 'my' lub 'ShopCart', mamy na myśli podmiot odpowiedzialny za twój sklep.",
+            "Te warunki i postanowienia obowiązują, gdy składasz zamówienie u nas w naszym sklepie internetowym, który można znaleźć na naszej stronie internetowej shopcart.mklos.dev lub w naszej dedykowanej aplikacji mobilnej (określanej jako 'Sklep internetowy').",
+            "Kładąc zamówienie, zgadzasz się być związany tymi warunkami i postanowieniami, które nazwiemy 'Warunkami'. Dlatego upewnij się, że przeczytałeś i zrozumiałeś je przed dokonaniem zakupu.",
+            "Aby złożyć zamówienie, musisz mieć zdolność prawną do zawierania umów, co oznacza, że musisz mieć co najmniej 18 lat i nie być pod opieką prawnej. Zamówienia opłacone kartami podarunkowymi mogą być składane przez osoby w wieku co najmniej 16 lat. Ponadto musisz mieć ważny adres e-mail i adres dostawy na terenie Wielkiej Brytanii, Jersey i Guernsey (wyłączając wszystkie inne Wyspy Normandzkie, BFPO i firmy przekierowujące pocztę).",
+            "Nie akceptujemy zamówień na cele korporacyjne, komercyjne ani samozatrudnienie. Nie wystawiamy faktur VAT dla firm.",
+            "Zastrzegamy sobie prawo do modyfikowania tych Warunków. Niemniej jednak, Warunki, z którymi się zgadzasz w chwili dokonania zakupu, zawsze będą dotyczyć tej konkretnej transakcji. Wszelkie zmiany zostaną uwzględnione w najnowszej wersji Warunków opublikowanej w naszym Sklepie internetowym. Zmiany będą obowiązywać po zaakceptowaniu Warunków, zazwyczaj podczas dokonywania nowego zakupu. Możemy okresowo aktualizować nasze Warunki, dlatego konieczne jest regularne odwiedzanie tej strony, aby być na bieżąco."
+        ],
+        "rules": [
+            {
+                "title": "Ceny i opłaty za dostawę",
+                "descriptions": [
+                    "Ceny wyświetlane w naszym Sklepie internetowym obejmują odpowiedni podatek od wartości dodanej, jeśli ma zastosowanie, ale nie obejmują opłat za dostawę. Całkowity koszt Twojego zakupu, w tym opłaty za dostawę, zostanie wyświetlony podczas procesu zamawiania.",
+                    "Należy zauważyć, że ceny w naszym Sklepie internetowym mogą się różnić od cen w naszych sklepach stacjonarnych.",
+                    "Koszt dostawy jest podany w widoku kasy, gdzie możesz wybrać spośród dostępnych opcji dostawy. Te opcje zależą od adresu dostawy i zamówionych przedmiotów. Nasza standardowa opłata za dostawę wynosi £3.99. Jeśli Twoje zamówienie wymaga kilku dostaw, zostaniesz obciążony tylko raz za całe zamówienie.",
+                    "Okresowo możemy oferować promocje, kody rabatowe, prezenty i inne specjalne oferty. Takie oferty są ważne przez określony czas i obowiązują pod warunkami związanymi z nimi. Oferty nie mogą być łączone z innymi rabatami, chyba że jest to wyraźnie określone w Sklepie internetowym. Aby skorzystać z oferty, powinieneś wprowadzić kod rabatowy przed zakończeniem zakupu."
+                ]
+            },
+            {
+                "title": "Składanie zamówienia",
+                "descriptions": [
+                    "Aby złożyć zamówienie, możesz wybrać przedmioty, które chcesz zakupić, i dodać je do koszyka za pomocą przycisku 'Dodaj do koszyka'. W widoku koszyka możesz przeglądać swoje zamówienie i usunąć przedmioty, które zmieniłeś zdanie, zanim przejdziesz do kasy. Kliknięcie przycisku 'Dokończ zakup' finalizuje Twoje zamówienie i stanowi wiążącą ofertę zakupu przedmiotów w Twoim koszyku. W zależności od wybranej metody płatności, mogą być wymagane dodatkowe kroki w celu dokonania płatności.",
+                    "Po otrzymaniu Twojego zamówienia wyślemy automatyczne potwierdzenie e-mailem, informujące, że Twoje zamówienie zostało złożone. Należy pamiętać, że złożone zamówienie stanowi ofertę i nie stanowi wiążącej umowy, dopóki nie zatwierdzimy Twojego zamówienia. Po zatwierdzeniu Twojego zamówienia otrzymasz e-mail z potwierdzeniem wysyłki zawierającym wszystkie istotne informacje dotyczące Twojego zamówienia i dostawy, co finalizuje naszą umowę.",
+                    "Zastrzegamy sobie prawo do odmowy zamówień z powodów operacyjnych, prawnych lub komercyjnych. Na przykład może to mieć miejsce, jeśli zamówiony przedmiot jest niedostępny z powodu wady lub jeśli podejrzewamy, że przedmioty są zamawiane w celach komercyjnej odsprzedaży. Jeśli nie możemy zatwierdzić Twojego zamówienia, powiadomimy Cię tak szybko, jak to możliwe po wysłaniu automatycznego potwierdzenia e-mailem, ale przed zatwierdzeniem zamówienia i wysłaniem potwierdzenia wysyłki.",
+                    "Jeśli już otrzymaliśmy płatność za niezatwierdzone zamówienie, spróbujemy zwrócić odpowiednią kwotę za pomocą tej samej metody płatności, którą użyłeś. Jeśli konieczne są inne ustalenia, skontaktujemy się z Tobą w celu uregulowania zwrotu."
+                ]
+            },
+            {
+                "title": "Metody płatności",
+                "descriptions": [
+                    "PayPal: Płacąc za pomocą PayPal, zastrzegamy sobie prawo do weryfikacji ważności konta PayPal, dostateczności środków na pokrycie wartości zakupu oraz weryfikacji danych adresu rozliczeniowego nabywcy. Odpowiednia kwota zostanie natychmiast zarezerwowana na Twoim koncie PayPal, ale nie zostanie obciążona aż do wysłania towarów. ShopCart zastrzega sobie prawo do odrzucenia zakupu.",
+                    "Karty podarunkowe ShopCart i karty towarowe: Możesz używać kart podarunkowych ShopCart i kart towarowych do opłacania całego lub części swojego zamówienia internetowego. Więcej informacji o łączeniu tych kart z innymi metodami płatności znajdziesz na naszej stronie internetowej.",
+                    "Płatność po dostawie: Nasze usługi Płać Później są świadczone przez Klarnę. Po wysłaniu Twojego zamówienia z naszego magazynu Klarna dostarczy informacje na temat terminu i sposobu dokonania płatności. W przypadku pytań dotyczących płatności prosimy o kontakt z obsługą klienta Klarny.",
+                    "Inne: Jeśli jesteś członkiem ShopCart, możesz uzyskać swoje potwierdzenie w sekcji 'Moje konto'. Osoby niebędące członkami ShopCart mogą skontaktować się z naszym zespołem obsługi klienta, aby uzyskać swoje potwierdzenie."
+                ]
+            },
+            {
+                "title": "Dostawa",
+                "descriptions": [
+                    "Kiedy dotrze Twoje zamówienie? W widoku kasy, przed zakończeniem zamówienia, zostaniesz poinformowany o dostępnych opcjach dostawy dostępnych dla Twojego określonego adresu dostawy, wraz z przewidywanym czasem dostawy po zatwierdzeniu zamówienia oraz kosztem związanym z każdą opcją.",
+                    "Chociaż dokładamy wszelkich starań, aby dostarczyć w określonym przedziale czasowym, niespodziewane zdarzenia mogą czasami powodować opóźnienia. Jeśli Twoje zamówienie nie dotrze w przewidywanym czasie dostawy, skontaktuj się z obsługą klienta, a oni Ci pomogą.",
+                    "Nasz celem jest dostarczenie Twojego zamówienia pod adres w Wielkiej Brytanii, Jersey lub Guernsey zgodnie z wybraną opcją dostawy. Niestety nie możemy dostarczać na inne Wyspy Normandzkie, BFPO i firmy przekierowujące pocztę. Niektóre produkty kosmetyczne nie mogą być dostarczane na Wyspę Północnej, Wyspę Wight, Wyspę Man, Wyspy Szetlandzkie, Orkady, Wyspy Scilly i Wyspy Szkockie."
+                ]
+            },
+            {
+                "title": "Zwroty",
+                "descriptions": [
+                    "Zmieniłeś zdanie? Żaden problem. Zgodnie z obowiązującymi przepisami ochrony konsumentów masz prawo do zwrotu całego zakupu lub jego części z dowolnego powodu w ciągu 14 dni od dnia otrzymania zamówienia. Dodatkowo oferujemy wydłużony okres zwrotu wynoszący 14 dni, co daje ci łącznie 28 dni na zwrot przedmiotów z dowolnego powodu.",
+                    "Oferujemy kilka sposobów zwrotu przedmiotów, w tym za pośrednictwem naszego portalu zwrotów, e-maila lub listem do naszego serwisu klienta. Upewnij się, że zwracasz odpowiednie i kompletne przedmioty, ponieważ nie możemy przetwarzać zwrotów przedmiotów zakupionych w sklepach stacjonarnych. Zauważ, że przedmioty od zewnętrznych marek mogą mieć osobne instrukcje zwrotu.",
+                    "Zwroty podlegają opłacie za zwrot w wysokości £1.99, a zwrot zostanie dokonany na tę samą metodę płatności, którą użyłeś do zakupu.",
+                    "Prawo odstąpienia od umowy i zwrot nie dotyczy produktów opakowanych ze względów zdrowotnych lub higienicznych, jeśli opakowanie zostało usunięte, takich jak niektóre rodzaje bielizny, stroje kąpielowe, biżuteria do piercingu, maski na twarz, produkty do pielęgnacji urody i kosmetyki."
+                ]
+            },
+            {
+                "title": "Wady",
+                "descriptions": [
+                    "Jeśli napotkasz jakiekolwiek problemy z zamówionymi przedmiotami, prosimy o poinformowanie nas. Zgodnie z obowiązującymi przepisami ochrony konsumentów, nasze produkty muszą być wolne od wad, zgodne z umową sprzedaży, odpowiednie do zamierzonego celu i działać zgodnie z oczekiwaniami.",
+                    "Oferujemy naprawę, wymianę, obniżenie ceny lub zwrot przedmiotów uznanych za wadliwe, w zależności od przedmiotu, charakteru wady i twoich preferencji.",
+                    "Jeśli otrzymasz wadliwy przedmiot w ciągu 28 dni od otrzymania, możesz postępować zgodnie z instrukcjami zwrotu w sekcji 6 (Zwroty) i wskazać, że przedmiot jest wadliwy."
+                ]
+            },
+            {
+                "title": "Nasza Odpowiedzialność",
+                "descriptions": [
+                    "Dokładamy wszelkich rozsądnych starań, aby informacje w naszym Sklepie internetowym były dokładne, kompleksowe i aktualne. Niemniej jednak, pomimo naszych najlepszych starań, informacje mogą okazjonalnie być niedokładne, niekompletne lub przestarzałe. Nie jesteśmy związani takimi informacjami, jeśli zauważyłeś lub powinieneś był zdać sobie sprawę, że informacje były nieprawidłowe, niekompletne lub przestarzałe.",
+                    "Staramy się dokładnie wyświetlać i opisywać atrybuty naszych produktów w Sklepie internetowym, takie jak wymiary, skład i kolory. Niemniej jednak kolor, który widzisz, może się różnić w zależności od urządzenia. Proszę zauważ, że nasze wymiary są przybliżone i służą jako szacunki modelu lub rozmiaru danego przedmiotu. Te wymiary nie gwarantują rzeczywistych wymiarów przedmiotu, który otrzymasz, ponieważ mogą się różnić w zależności od materiałów produkcyjnych.",
+                    "W przypadku nieprzewidywalnych okoliczności poza naszą kontrolą, takich jak działania rządowe, zmiany prawne, spory pracownicze, wojna, katastrofy naturalne lub inne wyjątkowe zdarzenia, może nam brakować możliwości spełnienia naszej umowy z tobą. W takich przypadkach nie ponosimy odpowiedzialności za żadne szkody. Proszę zauważ, że jako konsument zawsze zachowujesz prawo do anulowania zakupu w takich okolicznościach.",
+                    "Nasza maksymalna odpowiedzialność wobec ciebie za wszelkie straty lub szkody wynikające z zamówienia w Sklepie internetowym jest ograniczona do całkowitej ceny twojego zamówienia oraz udokumentowanych strat, jakie ponosisz w wyniku naszego niedotrzymania (czy to w umowie, delikcie, w tym zaniedbaniu, naruszeniu obowiązków ustawowych lub w inny sposób), które są przewidywalnym skutkiem takiego naruszenia.",
+                    "Nie ponosimy odpowiedzialności za pośrednie straty, które są skutkami ubocznymi głównej straty lub szkody, takie jak utrata zysków lub utrata okazji, lub za nieudokonanie dostawy towarów lub niespełnienie jakichkolwiek innych naszych obowiązków wynikających z tych Warunków, gdy taka niezdolność wynika z okoliczności poza naszą rozsądną kontrolą. Dotyczy to, między innymi, pożarów, powodzi, burz, zamieszek, zaburzeń cywilnych, wojny, wypadków nuklearnych i działań terrorystycznych.",
+                    "Te Warunki nie wyłączają ani nie ograniczają naszej odpowiedzialności w zakresie spraw, w których byłoby to niezgodne z prawem, aby ograniczyć lub wyłączyć naszą odpowiedzialność. Obejmuje to odpowiedzialność za śmierć lub obrażenia ciała spowodowane naszą zaniedbaniem lub zaniedbaniem naszych pracowników, agentów lub podwykonawców; za oszustwo lub wprowadzenie w błąd; za naruszenie twoich praw prawnych w odniesieniu do towarów; oraz za wadliwe towary zgodnie z obowiązującymi przepisami ochrony konsumenta."
+                ]
+            },
+            {
+                "title": "Kolory i Wymiary",
+                "descriptions": [
+                    "Jeśli masz jakiekolwiek obawy lub skargi dotyczące naszych produktów lub usług, prosimy o kontakt z naszym Serwisem Klienta. Przestrzegamy stosownych lokalnych mechanizmów rozstrzygania sporów w celu rozstrzygnięcia potencjalnych skarg klientów.",
+                    "Klienci w Wielkiej Brytanii mogą składać skargi do Arbitrażu Konsumenckiego. Jesteśmy subskrybentem usług Arbitrażu Konsumenckiego i jesteśmy gotowi uczestniczyć w jego procedurze ADR. Aby uzyskać więcej informacji lub złożyć skargę do Arbitrażu Konsumenckiego, odwiedź witrynę Arbitrażu Konsumenckiego."
+                ]
+            },
+            {
+                "title": "Rozdzielność",
+                "descriptions": [
+                    "Jeśli którykolwiek zapis w tych Warunkach zostanie uznany za niewykonalny z jakiejkolwiek przyczyny, nie wpłynie to na wykonalność innych zapisów w tych Warunkach."
+                ]
+            }
+        ],
+        "payments": {
+            "header": "Regulamin płatności Stripe",
+            "description": "Niniejszy „Regulamin” („Umowa”) reguluje korzystanie z usług płatniczych Stripe w witrynie ShopCart („Strona internetowa”) w celu zakupu odzieży i powiązanych produktów. Korzystając z naszych usług płatniczych Stripe, wyrażasz zgodę na przestrzeganie zobowiązań według tych warunków:",
+            "rules": [
+                {
+                    "title": "Przetwarzanie płatności",
+                    "description": [
+                        "Korzystamy ze Stripe jako naszego procesora płatności, a wszystkie płatności dokonywane za pośrednictwem naszej Strony internetowej podlegają warunkom świadczenia usług Stripe.",
+                        "Dokonując zakupu w naszej Witrynie, musisz podać dokładne i kompletne informacje o płatności. Nie ponosimy odpowiedzialności za jakiekolwiek błędy lub opóźnienia spowodowane przez niedokładne informacje o płatności."
+                    ]
+                },
+                {
+                    "title": "Bezpieczeństwo płatności",
+                    "description": [
+                        "Poważnie podchodzimy do bezpieczeństwa płatności. Wszystkie informacje o płatnościach są przesyłane i przechowywane w bezpieczny sposób, a także przestrzegamy standardów branżowych w celu ochrony Twoich informacji finansowych.",
+                        "Nie przechowujemy danych Twojej karty kredytowej na naszych serwerach. Wszystkie informacje dotyczące płatności są bezpiecznie przetwarzane przez Stripe."
+                    ]
+                },
+                {
+                    "title": "Autoryzacja płatności",
+                    "description": [
+                        "Korzystając ze Stripe do płatności w naszej Witrynie, upoważniasz nas do pobrania całkowitej kwoty zamówienia, łącznie z wszelkimi obowiązującymi podatkami i opłatami za wysyłkę."
+                    ]
+                },
+                {
+                    "title": "Spory dotyczące płatności i zwroty pieniędzy",
+                    "description": [
+                        "Jeśli uważasz, że wystąpiła rozbieżność lub problem z Twoją płatnością, skontaktuj się jak najszybciej z naszym zespołem obsługi klienta, aby uzyskać pomoc.",
+                        "Zastrzegamy sobie prawo do zwrotu pieniędzy według własnego uznania, zgodnie z naszymi zasadami zwrotów i zwrotów."
+                    ]
+                },
+                {
+                    "title": "Waluta i ceny",
+                    "description": [
+                        "Wszystkie transakcje są przetwarzane w walucie wyświetlanej na naszej Stronie internetowej w momencie zakupu.",
+                        "Ceny, rabaty i oferty mogą ulec zmianie według naszego uznania."
+                    ]
+                },
+                {
+                    "title": "Przestrzeganie prawa",
+                    "description": [
+                        "Wyrażasz zgodę na korzystanie z płatności Stripe w naszej Witrynie zgodnie ze wszystkimi obowiązującymi przepisami i regulacjami."
+                    ]
+                },
+                {
+                    "title": "Ograniczenie odpowiedzialności",
+                    "description": [
+                        "Nie ponosimy odpowiedzialności za jakiekolwiek problemy, błędy lub spory związane z płatnościami Stripe. W takich przypadkach zastosowanie będą miały warunki Stripe.",
+                        "ShopCart w żadnym wypadku nie ponosi odpowiedzialności za jakiekolwiek szkody bezpośrednie, pośrednie, przypadkowe, szczególne lub wynikowe wynikające z korzystania z usług płatniczych Stripe."
+                    ]
+                },
+                {
+                    "title": "Modyfikacja Regulaminu",
+                    "description": [
+                        "Zastrzegamy sobie prawo do modyfikacji niniejszego Regulaminu w dowolnym momencie. Wszelkie zmiany zaczną obowiązywać po opublikowaniu ich w naszej Witrynie."
+                    ]
+                },
+                {
+                    "title": "Dane kontaktowe",
+                    "description": [
+                        "Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące płatności Stripe lub niniejszego Regulaminu, skontaktuj się z naszym zespołem obsługi klienta."
+                    ]
+                }
+            ]
+        },
+        "reviews": {
+            "header": "Zasady użytkowania, ocena i opinia klienta",
+            "paragraphs": [
+                "Wprowadzając recenzję klienta za pośrednictwem usługi Oceny i recenzje klientów dla któregokolwiek z naszych produktów, udzielasz firmie ShopCart zwanej dalej „ShopCart” niewyłącznej, bezpłatnej, ogólnoświatowej licencji na wykorzystanie wszelkich Twoich pisemnych recenzji w związku z jego marketingiem i /lub w jego reklamach, w tym m.in. w sklepie internetowym, w biuletynach, katalogach, e-mailach i innych komunikatach z klientami, materiałach sklepu i innych celach marketingowych.",
+                "Ponadto udzielasz ShopCart prawa do przeglądania recenzji przed ich publikacją. ShopCart będzie publikować wyłącznie komentarze zawierające istotne informacje o produkcie, które pomogą innym klientom podejmować świadome decyzje i uzyskać lepsze zrozumienie produktu. W tym celu ShopCart nie będzie publikować ogólnie nieodpowiednich komentarzy, nieprzyzwoitego lub nieodpowiedniego języka ani danych osobowych. ShopCart komunikuje się w lokalnych językach dla każdego rynku. ShopCart zastrzega sobie prawo do usunięcia w dowolnym momencie jakiejkolwiek recenzji klienta, na przykład jeśli komentarz zostanie znaleziony narusza powyższe, produkt został wyprzedany lub komentarz jest z innego powodu nieaktualny.",
+                "Niniejszym zwalniasz ShopCart ze wszystkich zobowiązań do zapłaty za jakiekolwiek wykorzystanie Twoich tekstów i wszelkich praw autorskich w nich zawartych w związku z zastosowaniami opisanymi powyżej; oraz niniejszym zwalniasz, zwalniasz i zgadzasz się na zatrzymanie ShopCart i wszelkich osobę działającą w imieniu ShopCart i uwolnić ją od wszelkich roszczeń, żądań i odpowiedzialności wynikających z korzystania z recenzji klientów w sposób opisany powyżej. ShopCart zastrzega sobie prawo do okresowej zmiany niniejszego Regulaminu bez uprzedniego powiadomienia, jednakże Warunki, które były dostępne ty na hm.com w momencie przesyłania recenzji, złożysz wniosek o tę recenzję. Pamiętaj, aby zapisać kopię Warunków, ponieważ nie będziemy przechowywać ani nie będziemy w stanie udostępnić Ci starych wersji.",
+                "Pamiętaj, że recenzje mogą przesyłać wyłącznie klienci, którzy kupili przedmiot i przesłali swoją recenzję za pośrednictwem strony Moje konto, strony historii zamówień lub po otrzymaniu wiadomości e-mail z informacją o ocenie i recenzji po dokonaniu zakupu. Wszystkie recenzje, które nie naruszają naszych Warunków korzystania z usługi. Wyniki recenzji są ważone według mediany wartości pełnych danych opublikowanych recenzji artykułu na wybranym rynku."
+            ]
+        }
+    },
+    "ModalOutOfStock": {
+        "dialogTrigger": "Brak rozmiaru?",
+        "GuestView": {
+            "dialogTitle": "Powiadom mnie",
+            "dialogActionTitle": "Nie przegap!",
+            "dialogActionParagraph": "Otrzymaj powiadomienie gdy produkt będzie ponownie dostępny",
+            "button": "Zaloguj się/dołącz"
+        },
+        "UserView": {
+            "dialogTitle": "Powiadom mnie",
+            "dialogActionPosted": "BĄDŹ NA BIEŻĄCO",
+            "dialogActionPostedParagraph": "Jeżeli produkt będzie ponownie dostępny, wyślemy do Ciebie wiadomość.",
+            "selectTitle": "Wybierz rozmiar",
+            "dialogActionNotify": "POWIADOMIMY CIĘ NA ADRESS:",
+            "button": "Powiadom mnie"
+        }
+    },
+    "UserForm": {
+        "toast": "Pdane wartości zostały zauktualizowane:",
+        "nameLabel": "Imię",
+        "nameDescription": "Ogólnodostępna nazwa, którą będą widzieli inni użytkownicy. Może to być Twoje prawdziwe imię lub pseudonim. Możesz ją zmienić tylko raz na 30 dni.",
+        "emailDescription": "Możesz zarządzać zweryfikowanymi adresami e-mail w swoich",
+        "emailDescriptionLink": "opcjach email",
+        "bioDescriptionPre": "Możesz umieścić",
+        "bioDescriptionLink": "@wzmiankę",
+        "bioDescriptionPost": "odnoścnie innych użytkowników lub organizacji, aby połączyć Twój profil z nimi.",
+        "locationLabel": "Lokalizacja",
+        "locationDescription": "Lokalizacja może być przydatna podczas tworzenia wydarzeń w kalendarzu.",
+        "urlsDescription": "Dodaj linki do swojej witryny, bloga lub profili w mediach społecznościowych.",
+        "addUrl": "Add URL",
+        "submit": "Update profile",
+        "urlInvalidError": "Proszę podać poprawny adres URL. (np. https://przykład.pl)"
+    },
+    "UserNav": {
+        "linkTitleProfile": "Użytkownik",
+        "linkTitleCustomers": "Klienci",
+        "linkTitleSettings": "Ustawienia",
+        "linkTitleProducts": "Produkty",
+        "logout": "Wyloguj"
+    },
+    "UserPage": {
+        "header": "Użytkownik",
+        "description": "Tak będą Cię widzieć inni na tej stronie."
+    },
+    "UserSettings": {
+        "header": "Ustawienia",
+        "description": "Zarządzaj ustawieniami konta i konfiguruj preferencje poczty e-mail."
+    },
+    "UserSidebarNav": {
+        "user": "Użytkownik",
+        "appearance": "Wygląd"
+    },
+    "Utils": {
+        "useSteps": {
+            "chest": {
+                "title": "Klatka piersiowa",
+                "description": "Zmierz obwód klatki piersiowej w najszerszym miejscu, mając na sobie dopasowany stanik."
+            },
+            "waist": {
+                "title": "Talia",
+                "description": "Zmierz talię w najwęższym miejscu. (CIĄŻOWY: Nie mierz talii)"
+            },
+            "ArmLength": {
+                "title": "Długość ramienia",
+                "description": "Zmierz od ramienia do nadgarstka."
+            },
+            "LowHip": {
+                "title": "Niskie biodro",
+                "description": "Zmierz dolną część bioder w najszerszym miejscu."
+            }
+        }
+    }
+}

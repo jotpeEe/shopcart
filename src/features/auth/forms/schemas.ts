@@ -1,5 +1,15 @@
 import { z } from 'zod';
 
+export const EmailSchema = z.object({
+    email: z
+        .string()
+        .min(1, { message: 'messages.email.empty' })
+        .email({ message: 'messages.email.invalid' })
+        .max(30, { message: 'messages.email.max' }),
+});
+
+export type EmailSchemaType = z.infer<typeof EmailSchema>;
+
 export const LoginSchema = z.object({
     email: z
         .string()
@@ -9,7 +19,7 @@ export const LoginSchema = z.object({
     password: z
         .string()
         .min(1, { message: 'messages.password.empty' })
-        .max(30, { message: 'message.password.max' }),
+        .max(30, { message: 'messages.password.max' }),
 });
 
 export type LoginSchemaType = z.infer<typeof LoginSchema>;

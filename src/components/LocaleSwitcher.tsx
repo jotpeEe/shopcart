@@ -7,51 +7,51 @@ import { useLocale } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { locales, usePathname, useRouter } from '@/navigation';
 
 const LocaleSwitcher = () => {
-    const [isPending, startTransition] = useTransition();
-    const locale = useLocale();
-    const router = useRouter();
-    const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
-    const onSelectChange = (value: string) => {
-        const nextLocale = value;
-        startTransition(() => {
-            router.replace(pathname, { locale: nextLocale });
-        });
-    };
+  const onSelectChange = (value: string) => {
+    const nextLocale = value;
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
+  };
 
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild className="flex items-center gap-1.5">
-                <Button className="h-6 bg-stone-700 px-2.5 py-1.5 text-xs uppercase text-white/70 hover:bg-stone-600">
-                    <span className="sc-oQLfA gzAcBg">{locale}</span>
-                    {isPending ? (
-                        <Loader className="size-4 animate-spin" />
-                    ) : (
-                        <Globe className="size-4 text-stone-500 dark:text-stone-400" />
-                    )}
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="min-w-fit">
-                {locales.map(item => (
-                    <DropdownMenuItem
-                        key={item}
-                        onClick={() => onSelectChange(item)}
-                        data-testid={`menu-${item}`}
-                    >
-                        {item}
-                    </DropdownMenuItem>
-                ))}
-            </DropdownMenuContent>
-        </DropdownMenu>
-    );
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild className="flex items-center gap-1.5">
+        <Button className="h-6 bg-stone-700 px-2.5 py-1.5 text-xs uppercase text-white/70 hover:bg-stone-600">
+          <span className="sc-oQLfA gzAcBg">{locale}</span>
+          {isPending ? (
+            <Loader className="size-4 animate-spin" />
+          ) : (
+            <Globe className="size-4 text-stone-500 dark:text-stone-400" />
+          )}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" className="min-w-fit">
+        {locales.map(item => (
+          <DropdownMenuItem
+            key={item}
+            onClick={() => onSelectChange(item)}
+            data-testid={`menu-${item}`}
+          >
+            {item}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 };
 
 export default LocaleSwitcher;

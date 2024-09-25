@@ -1,15 +1,10 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import messages from '../../../messages/en.json';
-import { default as Form } from '../../../src/features/auth/forms/RegisterForm';
-import { type RegisterType } from '../../../src/features/auth/services/register';
-import WithForm from '../WithForm';
+import RegisterForm from '@/features/auth/forms/RegisterForm';
+import { type RegisterSchemaType } from '@/features/auth/forms/schemas';
 
-const RegisterForm = ({ register }: { register: RegisterType }) => (
-    <WithForm defaultValues={{ email: '', password: '', passwordConfirm: '' }}>
-        <Form register={register} />
-    </WithForm>
-);
+import messages from '../../../messages/en.json';
+import WithForm from '../WithForm';
 
 const t = messages.auth.messages;
 const { placeholders, button } = messages.auth.register;
@@ -20,18 +15,37 @@ jest.mock('next/navigation', () => ({
     }),
 }));
 
-const successfulRegisterMock = jest
-    .fn()
-    .mockResolvedValue({ success: t.server.signedIn });
+const setup = (variants?: 'success' | 'emailExist') => {
+    const handleSubmit = jest.fn(
+        (values: RegisterSchemaType) =>
+            ({
+                success: {
+                    ok: true,
+                    error: null,
+                    status: 200,
+                    url: null,
+                },
+                emailExist: {
+                    ok: false,
+                    error: 'messages.email.alreadyExist',
+                    status: 400,
+                    url: null,
+                },
+            })[variants || 'success']
+    );
 
-const setup = (register?: any) => {
-    const handleSubmit = register || jest.fn();
-    render(<RegisterForm register={handleSubmit} />);
+    render(
+        <WithForm defaultValues={{ email: '', password: '', passwordConfirm: '' }}>
+            <RegisterForm register={handleSubmit} />
+        </WithForm>
+    );
+
     const user = {
         email: 'test@test.com',
         password: 'password123',
         passwordConfirm: 'password123',
     };
+
     const changeEmailInput = (value: string) =>
         fireEvent.change(screen.getByPlaceholderText(placeholders[0] as string), {
             target: { value },
@@ -47,55 +61,17 @@ const setup = (register?: any) => {
     const clickSubmit = () => fireEvent.click(screen.getByText(button));
 
     return {
+        changeEmailInput,
+        changeConfirmPassInput,
+        changePasswordInput,
+        clickSubmit,
         handleSubmit,
         user,
-        changeEmailInput,
-        changePasswordInput,
-        changeConfirmPassInput,
-        clickSubmit,
     };
 };
 
-const setupSuccessCase = () => {
-    const utils = setup(successfulRegisterMock);
-    utils.changeEmailInput(utils.user.email);
-    utils.changePasswordInput(utils.user.password);
-    utils.changeConfirmPassInput(utils.user.passwordConfirm);
-    utils.clickSubmit();
-    return utils;
-};
-
-const setupWithTooShortPassword = () => {
-    const utils = setup();
-    utils.changeEmailInput(utils.user.email);
-    utils.changePasswordInput('pass');
-    utils.changeConfirmPassInput('pass');
-    utils.clickSubmit();
-
-    return utils;
-};
-
-const setupWithInvalidEmail = () => {
-    const utils = setup();
-    utils.changeEmailInput('diffEmail');
-    utils.changePasswordInput(utils.user.password);
-    utils.changeConfirmPassInput(utils.user.password);
-    utils.clickSubmit();
-
-    return utils;
-};
-
-const setupWithNoMatchPasswords = () => {
-    const utils = setup();
-    utils.changePasswordInput(utils.user.password);
-    utils.changeConfirmPassInput('different_password');
-    utils.clickSubmit();
-
-    return utils;
-};
-
 it('does not submit the form when fields are empty', async () => {
-    const { clickSubmit, handleSubmit } = setup();
+    const { handleSubmit, clickSubmit } = setup();
 
     clickSubmit();
 
@@ -103,7 +79,19 @@ it('does not submit the form when fields are empty', async () => {
 });
 
 it('submits the form with valid input', async () => {
-    const { handleSubmit, user } = setupSuccessCase();
+    const {
+        handleSubmit,
+        changeEmailInput,
+        changePasswordInput,
+        changeConfirmPassInput,
+        clickSubmit,
+        user,
+    } = setup('success');
+
+    changeEmailInput(user.email);
+    changePasswordInput(user.password);
+    changeConfirmPassInput(user.passwordConfirm);
+    clickSubmit();
 
     await waitFor(() => {
         expect(handleSubmit).toHaveBeenCalledTimes(1);
@@ -111,26 +99,73 @@ it('submits the form with valid input', async () => {
     await waitFor(() => {
         expect(handleSubmit).toHaveBeenCalledWith(user);
     });
-    expect(screen.getByText(t.server.signedIn)).toBeInTheDocument();
+
+    const toastElement = await screen.findByTestId('toast');
+    expect(toastElement).toBeInTheDocument();
 });
 
 it('displays error for invalid email format', async () => {
-    const { handleSubmit } = setupWithInvalidEmail();
+    const {
+        handleSubmit,
+        changeConfirmPassInput,
+        changeEmailInput,
+        changePasswordInput,
+        clickSubmit,
+        user,
+    } = setup();
+
+    changeEmailInput('diffEmail');
+    changePasswordInput(user.password);
+    changeConfirmPassInput(user.passwordConfirm);
+    clickSubmit();
 
     expect(await screen.findByRole('alert')).toHaveTextContent(t.email.invalid);
     expect(handleSubmit).not.toHaveBeenCalled();
 });
 
 it('displays error when password is too short', async () => {
-    const { handleSubmit } = setupWithTooShortPassword();
+    const {
+        changeConfirmPassInput,
+        changeEmailInput,
+        changePasswordInput,
+        clickSubmit,
+        handleSubmit,
+        user,
+    } = setup();
 
+    changeEmailInput(user.email);
+    changePasswordInput('pass');
+    changeConfirmPassInput('pass');
+    clickSubmit();
     expect(await screen.findByRole('alert')).toHaveTextContent(t.password.min);
+
     expect(handleSubmit).not.toHaveBeenCalled();
 });
 
 it('displays error message for password confirmation mismatch', async () => {
-    setupWithNoMatchPasswords();
+    const { changePasswordInput, changeConfirmPassInput, clickSubmit, user } = setup();
+
+    changePasswordInput(user.password);
+    changeConfirmPassInput('different_password');
+    clickSubmit();
 
     expect(await screen.findByText(t.password.noMatch)).toBeInTheDocument();
     expect(await screen.findByText(t.email.empty)).toBeInTheDocument();
+});
+
+it('displays error message when email already used', async () => {
+    const {
+        changePasswordInput,
+        changeConfirmPassInput,
+        clickSubmit,
+        changeEmailInput,
+        user,
+    } = setup('emailExist');
+
+    changeEmailInput('test@test.com');
+    changePasswordInput(user.password);
+    changeConfirmPassInput(user.password);
+    clickSubmit();
+
+    expect(await screen.findByText(t.email.alreadyExist)).toBeInTheDocument();
 });

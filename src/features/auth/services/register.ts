@@ -1,7 +1,7 @@
 'use server';
 
 import bcrypt from 'bcrypt';
-import { getTranslations } from 'next-intl/server';
+import { type SignInResponse } from 'next-auth/react';
 
 import { db } from '@/lib/db';
 
@@ -10,14 +10,22 @@ import { getUserByEmail } from '../utils/getUserByEmail';
 
 export type RegisterType = (
     values: RegisterSchemaType
-) => Promise<{ success: string } | { error: string }>;
+) => Promise<SignInResponse | undefined>;
 
-export const register: RegisterType = async (values: RegisterSchemaType) => {
-    const t = await getTranslations('auth.messages');
+export const register = async (
+    values: RegisterSchemaType
+): Promise<SignInResponse | undefined> => {
     const validatedFields = RegisterSchema.safeParse(values);
 
+    const res = {
+        ok: false,
+        status: 400,
+        error: null,
+        url: null,
+    };
+
     if (!validatedFields.success) {
-        return { error: t('server.invalid') };
+        return { ...res, error: 'messages.server.invalid' };
     }
 
     const { email, password } = validatedFields.data;
@@ -26,7 +34,7 @@ export const register: RegisterType = async (values: RegisterSchemaType) => {
     const existingUser = await getUserByEmail(email);
 
     if (existingUser) {
-        return { error: t('email.alreadyExist') };
+        return { ...res, error: 'messages.email.alreadyExist' };
     }
 
     await db.user.create({
@@ -36,5 +44,5 @@ export const register: RegisterType = async (values: RegisterSchemaType) => {
         },
     });
 
-    return { success: t('server.signedIn') };
+    return { ...res, ok: true, status: 200 };
 };

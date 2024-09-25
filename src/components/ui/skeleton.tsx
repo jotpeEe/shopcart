@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 const skeletonVariants = cva('flex items-center rounded-md', {
     variants: {
         variant: {
-            input: 'border border-input',
-            button: '',
+            input: 'border border-input mb-7',
+            button: 'border border-input',
         },
         size: {
             default: 'h-10 px-3 py-2 w-full',

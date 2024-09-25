@@ -12,12 +12,11 @@
         },
         "login": {
             "header": "Zaloguj się",
-            "description": "Podaj e-mail oraz hasło, aby się zalogować",
             "placeholders": ["Email", "Hasło"],
             "separator": "Lub zaloguj się za pomocą",
-            "question": "Pierwszy raz w ShopCart?",
+            "question": "Pierwszy raz w ShopCart",
             "button": "Zaloguj się",
-            "callToAction": "Załóż konto"
+            "callToAction": "Załóż nowe konto"
         },
         "messages": {
             "email": {
@@ -25,7 +24,7 @@
                 "empty": "Wpisz adres e-mail",
                 "invalid": "Nieprawidłowy adres e-mail",
                 "max": "Adress nie może przekraczać 30 znaków.",
-                "notExist": "Nie ma konta o tym adresie"
+                "notExist": "Nie ma konta o tym adresie email"
             },
             "password": {
                 "empty": "Wprowadź hasło",
@@ -35,7 +34,6 @@
                 "noMatch": "Hasła nie pasują"
             },
             "server": {
-                "invalid": "Nieprawidłowy format użytkownika lub hasła",
                 "loggedIn": "Logowanie do konta pomyślne",
                 "signedIn": "Konto założone",
                 "error": "Coś poszło nie tak, proszę spróbować później"
@@ -46,12 +44,12 @@
             }
         },
         "register": {
-            "button": "Załóż konto",
+            "button": "Załóż nowe konto",
             "callToAction": "Zaloguj się",
             "description": "Podaj e-mail oraz hasło, aby założyć konto",
             "error": "Błąd",
-            "header": "Załóż konto",
-            "question": "Masz już konto?",
+            "header": "Załóż nowe konto",
+            "question": "Masz już konto",
             "placeholders": ["Email", "Hasło", "Potwierdź hasło"],
             "separator": "Lub zaloguj się za pomocą",
             "success": "Sukces"

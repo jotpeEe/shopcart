@@ -10,27 +10,27 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster';
 
 type ProvidersProps = {
-    messages: AbstractIntlMessages | undefined;
-    locale: string;
-    session: Session | null;
-    children: React.ReactNode;
+  messages: AbstractIntlMessages | undefined;
+  locale: string;
+  session: Session | null;
+  children: React.ReactNode;
 };
 
 const Providers: React.FC<ProvidersProps> = ({ children, messages, locale, session }) => (
-    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Europe/London">
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            disableTransitionOnChange
-            enableSystem={false}
-            storageKey="test-theme"
-        >
-            <SessionProvider session={session}>
-                {children}
-                <Toaster />
-            </SessionProvider>
-        </ThemeProvider>
-    </NextIntlClientProvider>
+  <NextIntlClientProvider locale={locale} messages={messages} timeZone="Europe/London">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+      enableSystem={false}
+      storageKey="test-theme"
+    >
+      <SessionProvider session={session}>
+        {children}
+        <Toaster />
+      </SessionProvider>
+    </ThemeProvider>
+  </NextIntlClientProvider>
 );
 
 export default Providers;

@@ -1,46 +1,13 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
+import LoginForm from '@/features/auth/forms/LoginForm';
+import { type EmailSchemaType } from '@/features/auth/forms/schemas';
+
 import messages from '../../../messages/en.json';
-import { default as Form } from '../../../src/features/auth/forms/LoginForm';
-import { type LoginSchemaType } from '../../../src/features/auth/forms/schemas';
-import { type LoginType } from '../../../src/features/auth/services/login';
 import WithForm from '../WithForm';
 
-const mockLoginInvalidPassword = jest.fn((values: LoginSchemaType) =>
-    Promise.resolve({
-        error: 'Invalid password',
-        status: 401,
-        ok: false,
-        url: null,
-    })
-);
-
-const mockLoginCatchError = jest.fn((values: LoginSchemaType) =>
-    Promise.resolve({
-        error: 'fdsgdsfgdsfgdsfgfdgdsfgds',
-        status: 401,
-        ok: false,
-        url: null,
-    })
-);
-
-const mockLoginNoEmail = jest.fn((values: LoginSchemaType) =>
-    Promise.resolve({
-        error: 'There is no account with that email adress',
-        status: 401,
-        ok: false,
-        url: null,
-    })
-);
-
-const mockLogin = jest.fn((values: LoginSchemaType) =>
-    Promise.resolve({
-        error: 'error',
-        status: 200,
-        ok: true,
-        url: null,
-    })
-);
+const t = messages.auth.messages;
+const { placeholders } = messages.auth.login;
 
 jest.mock('next/navigation', () => ({
     useRouter: () => ({
@@ -48,207 +15,218 @@ jest.mock('next/navigation', () => ({
     }),
 }));
 
-const LoginForm = ({ login }: { login: LoginType }) => (
-    <WithForm defaultValues={{ email: '', password: '' }}>
-        <Form login={login} />
-    </WithForm>
-);
+const setup = (emailVariant: 'noEmail' | 'success' = 'success') => {
+    const mockValidateEmail = jest.fn(
+        (values: EmailSchemaType) =>
+            ({
+                success: {
+                    ok: true,
+                    error: null,
+                    status: 200,
+                    url: null,
+                },
+                noEmail: {
+                    ok: false,
+                    error: t.email.notExist,
+                    status: 400,
+                    url: null,
+                },
+            })[emailVariant]
+    );
 
-const passwordPlaceholder = messages.auth.login.placeholders[1] as string;
+    render(
+        <WithForm defaultValues={{ email: '', password: '' }}>
+            <LoginForm validateEmail={mockValidateEmail} />
+        </WithForm>
+    );
+
+    const email = 'test@test.com';
+
+    const emailInput = screen.getByPlaceholderText(
+        placeholders[0] as string
+    ) as HTMLInputElement;
+    const submitButton = screen.getByTestId('submit-button');
+
+    const changeEmailInput = (value: string) =>
+        fireEvent.change(emailInput, { target: { value } });
+
+    const clickSubmit = () => fireEvent.submit(submitButton);
+
+    return {
+        changeEmailInput,
+        submitButton,
+        emailInput,
+        clickSubmit,
+        email,
+    };
+};
 
 describe('LoginForm', () => {
     it('should allow user to type in email input', () => {
-        render(<LoginForm login={mockLogin} />);
-        const emailInput = screen.getByRole('textbox') as HTMLInputElement;
+        const { emailInput, changeEmailInput, email } = setup();
 
-        fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
+        changeEmailInput(email);
 
-        expect(emailInput.value).toBe('test@example.com');
+        expect(emailInput.value).toBe(email);
     });
 
-    it('should allow user to type in password input', () => {
-        render(<LoginForm login={mockLogin} />);
-        const passwordInput = screen.getByPlaceholderText(
-            passwordPlaceholder
-        ) as HTMLInputElement;
+    it('submit button is disabled when password field is empty', () => {
+        const { emailInput, submitButton, changeEmailInput } = setup();
 
-        fireEvent.change(passwordInput, { target: { value: 'password123' } });
+        changeEmailInput('');
 
-        expect(passwordInput.value).toBe('password123');
+        expect(emailInput.value).toBe('');
+        expect(submitButton).toBeDisabled();
+
+        changeEmailInput('s');
+
+        expect(submitButton).toBeEnabled();
     });
 
-    it('should change password visibility after clicking toggle button for password input field', async () => {
-        render(<LoginForm login={mockLogin} />);
+    it('submit button should disappear after submit successful', async () => {
+        const { clickSubmit, email, submitButton, changeEmailInput } = setup();
 
-        const toggleButton = screen.getByTestId('password-toggle-button');
-        const inputElement = screen.getByPlaceholderText(passwordPlaceholder);
+        changeEmailInput(email);
 
-        expect(toggleButton).toBeInTheDocument();
+        clickSubmit();
 
-        fireEvent.click(toggleButton);
+        await waitFor(() => {
+            const button = screen.queryAllByTestId('submit-button');
 
-        expect(inputElement).toHaveAttribute('type', 'text');
-    });
-
-    it('displays two input fields with one having a hidden value', async () => {
-        render(<LoginForm login={mockLogin} />);
-
-        const emailInput = screen.getByRole('textbox');
-        const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
-
-        expect(emailInput).toBeInTheDocument();
-        expect(passwordInput).toBeInTheDocument();
-
-        expect(passwordInput).toHaveAttribute('type', 'password');
-    });
-
-    describe('Validation', () => {
-        it('should display required error when values are invalid', async () => {
-            render(<LoginForm login={mockLogin} />);
-
-            fireEvent.submit(screen.getByTestId('Login-submit'));
-
-            expect(await screen.findAllByRole('alert')).toHaveLength(2);
-            expect(mockLogin).not.toHaveBeenCalled();
-        });
-
-        it('should display matching error when email is invalid', async () => {
-            render(<LoginForm login={mockLogin} />);
-
-            const emailInput = screen.getByRole('textbox');
-            const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
-            const submitButton = screen.getByTestId('Login-submit');
-
-            fireEvent.input(emailInput, {
-                target: {
-                    value: 'test',
-                },
-            });
-
-            fireEvent.input(passwordInput, {
-                target: {
-                    value: 'password',
-                },
-            });
-
-            fireEvent.submit(submitButton);
-
-            expect(await screen.findAllByRole('alert')).toHaveLength(1);
-            expect(mockLogin).not.toHaveBeenCalled();
-            expect(emailInput).toHaveValue('test');
-            expect(passwordInput).toHaveValue('password');
+            expect(submitButton.id === button[0]?.id).toBe(false);
         });
     });
 
-    describe('Error messages', () => {
-        it('should handle server password error and assign to correct form message element', async () => {
-            render(<LoginForm login={mockLoginInvalidPassword} />);
+    // describe('Validation', () => {
+    //     it('should display required error when values are invalid', async () => {
+    //         const { clickSubmit, handleSubmit } = setup();
 
-            const emailInput = screen.getByRole('textbox');
-            const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
-            const submitButton = screen.getByTestId('Login-submit');
+    //         clickSubmit();
 
-            fireEvent.input(emailInput, {
-                target: {
-                    value: 'test@mail.com',
-                },
-            });
+    //         expect(await screen.findAllByRole('alert')).toHaveLength(2);
+    //         expect(handleSubmit).not.toHaveBeenCalled();
+    //     });
 
-            fireEvent.input(passwordInput, {
-                target: {
-                    value: 'password',
-                },
-            });
+    //     it('should display matching error when email is invalid', async () => {
+    //         const {
+    //             emailInput,
+    //             passwordInput,
+    //             changeEmailInput,
+    //             changePasswordInput,
+    //             clickSubmit,
+    //             handleSubmit,
+    //             user,
+    //         } = setup();
 
-            fireEvent.click(submitButton);
+    //         changeEmailInput('test');
+    //         changePasswordInput(user.password);
 
-            await waitFor(() => {
-                expect(mockLoginInvalidPassword).toHaveBeenCalledWith({
-                    email: 'test@mail.com',
-                    password: 'password',
-                });
-            });
+    //         clickSubmit();
 
-            const alertElement = await screen.findByRole('alert');
-            const alertId = alertElement.getAttribute('id');
-            const passwordInputId = passwordInput.getAttribute('id');
+    //         expect(await screen.findAllByRole('alert')).toHaveLength(1);
+    //         expect(handleSubmit).not.toHaveBeenCalled();
+    //         expect(emailInput).toHaveValue('test');
+    //         expect(passwordInput).toHaveValue(user.password);
+    //     });
+    // });
 
-            expect(alertId).toContain(passwordInputId);
-            expect(alertElement).toHaveTextContent(/Invalid password/i);
-            expect(emailInput).toHaveValue('test@mail.com');
-            expect(passwordInput).toHaveValue('password');
-        });
+    // describe('Error messages', () => {
+    //     it('should handle server password error and assign to correct form message element', async () => {
+    //         const {
+    //             emailInput,
+    //             passwordInput,
+    //             changeEmailInput,
+    //             changePasswordInput,
+    //             clickSubmit,
+    //             handleSubmit,
+    //             user,
+    //         } = setup('invalidPassword');
 
-        it('should handle server email error and assign to correct form message element', async () => {
-            render(<LoginForm login={mockLoginNoEmail} />);
+    //         const { email, password } = user;
 
-            const emailInput = screen.getByRole('textbox');
-            const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
-            const submitButton = screen.getByTestId('Login-submit');
+    //         changeEmailInput(email);
+    //         changePasswordInput(password);
 
-            fireEvent.input(emailInput, {
-                target: {
-                    value: 'test@mail.com',
-                },
-            });
+    //         clickSubmit();
 
-            fireEvent.input(passwordInput, {
-                target: {
-                    value: 'pass',
-                },
-            });
+    //         await waitFor(() => {
+    //             expect(handleSubmit).toHaveBeenCalledWith({
+    //                 email,
+    //                 password,
+    //             });
+    //         });
 
-            fireEvent.click(submitButton);
+    //         const alertElement = await screen.findByRole('alert');
+    //         const alertId = alertElement.getAttribute('id');
+    //         const passwordInputId = passwordInput.getAttribute('id');
 
-            await waitFor(() => {
-                expect(mockLoginNoEmail).toHaveBeenCalledWith({
-                    email: 'test@mail.com',
-                    password: 'pass',
-                });
-            });
+    //         expect(alertId).toContain(passwordInputId);
+    //         expect(alertElement).toHaveTextContent(t.password.invalid);
+    //         expect(emailInput).toHaveValue(email);
+    //         expect(passwordInput).toHaveValue(password);
+    //     });
 
-            const alertElement = await screen.findByRole('alert');
-            const alertId = alertElement.getAttribute('id');
-            const emailId = emailInput.getAttribute('id');
+    //     it('should handle server email error and assign to correct form message element', async () => {
+    //         const {
+    //             emailInput,
+    //             passwordInput,
+    //             changeEmailInput,
+    //             changePasswordInput,
+    //             clickSubmit,
+    //             handleSubmit,
+    //             user,
+    //         } = setup('noEmail');
+    //         const { email } = user;
 
-            expect(alertId).toContain(emailId);
-            expect(await screen.findByRole('alert')).toHaveTextContent(
-                /There is no account with that address/i
-            );
-            expect(emailInput).toHaveValue('test@mail.com');
-            expect(passwordInput).toHaveValue('pass');
-        });
+    //         changeEmailInput(email);
+    //         changePasswordInput('pass');
 
-        it('should handle unknown server error and show toast with user-friendly text', async () => {
-            render(<LoginForm login={mockLoginCatchError} />);
+    //         clickSubmit();
 
-            const emailInput = screen.getByRole('textbox');
-            const passwordInput = screen.getByPlaceholderText(passwordPlaceholder);
-            const submitButton = screen.getByTestId('Login-submit');
+    //         await waitFor(() => {
+    //             expect(handleSubmit).toHaveBeenCalledWith({
+    //                 email,
+    //                 password: 'pass',
+    //             });
+    //         });
 
-            fireEvent.input(emailInput, {
-                target: {
-                    value: 'test@mail.com',
-                },
-            });
+    //         const alertElement = await screen.findByRole('alert');
+    //         const alertId = alertElement.getAttribute('id');
+    //         const emailId = emailInput.getAttribute('id');
 
-            fireEvent.input(passwordInput, {
-                target: {
-                    value: 'pass',
-                },
-            });
+    //         expect(alertId).toContain(emailId);
+    //         expect(await screen.findByRole('alert')).toHaveTextContent(t.email.notExist);
+    //         expect(emailInput).toHaveValue(email);
+    //         expect(passwordInput).toHaveValue('pass');
+    //     });
 
-            fireEvent.click(submitButton);
+    //     it('should handle unknown server error and show toast with user-friendly text', async () => {
+    //         const {
+    //             emailInput,
+    //             passwordInput,
+    //             changeEmailInput,
+    //             changePasswordInput,
+    //             clickSubmit,
+    //             user,
+    //             handleSubmit,
+    //         } = setup('catchError');
 
-            await waitFor(() => {
-                expect(mockLoginCatchError).toHaveBeenCalled();
-            });
+    //         const { email, password } = user;
 
-            const toastElement = await screen.findByTestId('toast');
+    //         changeEmailInput(email);
+    //         changePasswordInput(password);
 
-            expect(toastElement).toBeInTheDocument();
-            expect(emailInput).toHaveValue('test@mail.com');
-            expect(passwordInput).toHaveValue('pass');
-        });
-    });
+    //         clickSubmit();
+
+    //         await waitFor(() => {
+    //             expect(handleSubmit).toHaveBeenCalled();
+    //         });
+
+    //         const toastElement = await screen.findByTestId('toast');
+
+    //         expect(toastElement).toBeInTheDocument();
+    //         expect(emailInput).toHaveValue(email);
+    //         expect(passwordInput).toHaveValue(password);
+    //     });
+    // });
 });

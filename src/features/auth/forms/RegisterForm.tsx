@@ -1,80 +1,70 @@
 'use client';
 
-import { startTransition } from 'react';
 import React from 'react';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { type SubmitHandler, useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
-import { Form, FormTextInput } from '@/components/ui/form';
+import { Form } from '@/components/ui/form';
+import { FormInput } from '@/components/ui/input/form-input';
 import { toast } from '@/components/ui/use-toast';
 import { DEFAULT_REDIRECT } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-import { RegisterSchema, type RegisterSchemaType } from './schemas';
+import { RegisterSchema } from './schemas';
+import useAuthForm from '../hooks/useAuthForm';
 import { type RegisterType } from '../services/register';
 
-export const RegisterForm = ({ register }: { register: RegisterType }) => {
-    const t = useTranslations('auth.register');
-    const router = useRouter();
+const RegisterForm = ({
+    register,
+    disabled = false,
+}: {
+    register: RegisterType;
+    disabled?: boolean;
+}) => {
+    const t = useTranslations('auth');
 
-    const form = useForm<RegisterSchemaType>({
-        resolver: zodResolver(RegisterSchema),
-        defaultValues: {
-            email: '',
-            password: '',
-            passwordConfirm: '',
-        },
-    });
-
-    const onSubmit: SubmitHandler<RegisterSchemaType> = async values => {
-        startTransition(() => {
-            register(values).then(res => {
-                const entry = Object.entries(res)[0];
-                if (entry) {
-                    const [key, value] = entry;
-                    const error = key === 'error';
-
-                    toast({
-                        title: t(`${key}`),
-                        description: (
-                            <span className={cn(!error && 'text-green-600')}>
-                                {value}
-                            </span>
-                        ),
-                        variant: error ? 'destructive' : 'default',
-                    });
-
-                    if (!error) {
-                        router.push(DEFAULT_REDIRECT);
-                    }
-                }
-            });
-        });
+    const defaultValues = {
+        email: '',
+        password: '',
+        passwordConfirm: '',
     };
 
-    const inputs = Object.keys(form.getValues());
-    const { isLoading } = form.formState;
+    const { form, handleSubmit, isSubmitting } = useAuthForm({
+        defaultValues,
+        schema: RegisterSchema,
+        action: register,
+        onSuccess: () => {
+            toast({
+                title: t('messages.response.success'),
+                description: (
+                    <span className="text-green-600">
+                        {t('messages.server.signedIn')}
+                    </span>
+                ),
+            });
+        },
+        redirectUrl: DEFAULT_REDIRECT,
+    });
+
+    const inputs = Object.keys(defaultValues);
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="grid gap-1">
+            <form className="m-1.5 h-[264px]" onSubmit={handleSubmit}>
+                <div className={cn('grid gap-2', disabled && 'hidden')}>
                     {inputs.map((name, index) => (
-                        <FormTextInput
+                        <FormInput
                             key={`${name}-login`}
                             name={name}
-                            placeholder={t(`placeholders.${index}`)}
-                            disabled={isLoading}
+                            placeholder={t(`register.placeholders.${index}`)}
+                            disabled={isSubmitting}
                         />
                     ))}
-                    <Button disabled={isLoading} className="mt-2">
-                        {isLoading && <Loader className="mr-2 h-4 w-4 animate-spin" />}
-                        {t('button')}
+                    <Button disabled={isSubmitting}>
+                        {isSubmitting && <Loader className="mr-2 h-4 w-4 animate-spin" />}
+                        {t('register.button')}
                     </Button>
                 </div>
             </form>
